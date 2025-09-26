@@ -1,11 +1,24 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+﻿@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Space Grotesk", "Montserrat", sans-serif;
+  color: $dark-blue-text;
+}
+
 h1 {
   font-weight: 700;
 }
 
 p,
-a {
+a,
+li {
+  font-family: "Inter", "Montserrat", sans-serif;
   font-size: $default-font-size;
+  color: $muted-text;
+  line-height: 1.75;
 }
 
 a {
@@ -17,11 +30,14 @@ a:hover {
 }
 
 .section-title {
-  margin-bottom: 4.5rem;
+  margin-bottom: 3.2rem;
   font-size: $big-font-size;
-  text-transform: uppercase;
+  text-transform: none;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  text-align: left;
   @include respond(phone) {
-    font-size: 2.8rem;
+    font-size: 3.2rem;
   }
 }
 
@@ -31,12 +47,15 @@ a:hover {
 
 .text-color-main {
   margin-left: 1rem;
-  @include supportColorForIE11();
+  color: $secondary-color;
+  font-weight: 600;
+  position: relative;
+
+  &:hover {
+    color: $accent-color;
+  }
 
   @include respond(phone) {
     margin: 0;
-    background-image: none;
-    -webkit-text-fill-color: $secondary-color;
-    box-shadow: none;
   }
 }

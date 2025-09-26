@@ -13,70 +13,133 @@ export function initScrollReveal() {
   const sr = ScrollReveal()
 
   // Hero Section
+  sr.reveal(".hero__eyebrow", {
+    ...defaultProps,
+    delay: 200,
+    distance: "10px",
+    origin: "top",
+  })
+
   sr.reveal(".hero-title", {
     ...defaultProps,
-    delay: 500,
+    delay: 300,
     origin: window.innerWidth > 768 ? "left" : "bottom",
   })
-  sr.reveal(".name", {
+
+  sr.reveal(".hero__subtitle", {
     ...defaultProps,
-    distance: "0px",
-    delay: 700,
-    scale: 0,
+    delay: 450,
+    distance: "40px",
   })
+
   sr.reveal(".hero-cta", {
     ...defaultProps,
-    delay: 1200,
+    delay: 600,
+    distance: "40px",
     origin: window.innerWidth > 768 ? "left" : "bottom",
   })
+
+  sr.reveal(".hero__highlights li", {
+    ...defaultProps,
+    delay: 700,
+    interval: 120,
+    origin: window.innerWidth > 768 ? "right" : "bottom",
+  })
+
   sr.reveal(".scroll-down-link", {
     ...defaultProps,
-    delay: 2000,
+    delay: 900,
     origin: "top",
   })
 
   // About Section
-  sr.reveal(".section-title", {
+  sr.reveal("#about .section-title", {
     ...defaultProps,
-    delay: 400,
+    delay: 200,
     distance: "0px",
   })
+
   sr.reveal(".about-wrapper__image", {
     ...defaultProps,
-    delay: 600,
-    scale: 0.5,
+    delay: 300,
+    scale: 0.95,
   })
 
   sr.reveal(".about-wrapper__info", {
     ...defaultProps,
-    delay: 700,
-    distance: "100px",
-    origin: window.innerWidth > 768 ? "left" : "top",
+    delay: 400,
+    distance: "60px",
+    origin: window.innerWidth > 768 ? "right" : "bottom",
+  })
+
+  sr.reveal(".about-pill", {
+    ...defaultProps,
+    delay: 550,
+    interval: 120,
+    distance: "20px",
+  })
+
+  // Skills Section
+  sr.reveal(".skills-card", {
+    ...defaultProps,
+    delay: 200,
+    interval: 120,
+    distance: "35px",
+    origin: window.innerWidth > 768 ? "bottom" : "bottom",
   })
 
   // Projects Section
-  sr.reveal(".project-wrapper__text", {
+  sr.reveal(".project-card", {
     ...defaultProps,
-    delay: 600,
+    delay: 200,
+    interval: 160,
+    distance: "60px",
     origin: window.innerWidth > 768 ? "left" : "bottom",
   })
 
   sr.reveal(".project-wrapper__image", {
     ...defaultProps,
-    delay: 600,
-    scale: 0.9,
+    delay: 320,
+    interval: 160,
+    scale: 0.95,
     origin: window.innerWidth > 768 ? "right" : "bottom",
   })
 
-  // Contact Section
-  sr.reveal(".contact-wrapper", {
+  // Education Section
+  sr.reveal(".timeline__item", {
     ...defaultProps,
-    delay: 600,
+    delay: 240,
+    interval: 140,
+    distance: "45px",
   })
 
-  sr.reveal(".fa", {
+  // Certificates Section
+  sr.reveal(".certificate-card", {
     ...defaultProps,
-    delay: 500,
+    delay: 200,
+    interval: 110,
+    distance: "40px",
+    origin: window.innerWidth > 768 ? "bottom" : "bottom",
+  })
+
+  // Contact Section
+  sr.reveal(".contact-wrapper__text", {
+    ...defaultProps,
+    delay: 200,
+    distance: "30px",
+  })
+
+  sr.reveal(".contact-wrapper__channels", {
+    ...defaultProps,
+    delay: 320,
+    distance: "20px",
+    origin: "top",
+  })
+
+  sr.reveal(".social-links a", {
+    ...defaultProps,
+    delay: 200,
     interval: 100,
+    distance: "20px",
   })
 }

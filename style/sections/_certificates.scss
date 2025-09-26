@@ -1,0 +1,55 @@
+﻿#certificates {
+  background: rgba($white-color, 0.98);
+
+  .certificates-grid {
+    display: grid;
+    gap: 2.4rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    @include respond(tab-land) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include respond(phone) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .certificate-card {
+    background: $white-color;
+    border-radius: 1.6rem;
+    padding: 2.4rem;
+    border: 1px solid rgba($secondary-color, 0.1);
+    box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    h3 {
+      font-size: 1.8rem;
+      color: $secondary-color;
+    }
+
+    p {
+      font-size: 1.5rem;
+      color: $dark-blue-text;
+    }
+
+    ul {
+      padding-left: 1.6rem;
+      color: $muted-text;
+
+      li {
+        margin-bottom: 0.4rem;
+      }
+    }
+  }
+
+  .certificate-card__meta {
+    font-size: 1.3rem;
+    color: $muted-text;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+}

@@ -1,87 +1,122 @@
-#hero {
+﻿#hero {
+  position: relative;
   min-height: 100vh;
-  height: 100vh;
   display: flex;
   align-items: center;
-  background: $white-color;
-  font-weight: 400;
-  color: $dark-blue-text;
-  padding: 0rem 5.6rem;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: -1;
-  line-height: 1.2;
-  animation: hidden 1000ms linear forwards;
-
-  // If you want to set a background image on the hero section, uncomment these with yout custom image
-
-  /* background: url("/src/assets/[your-image].png");
-    background-position: center;
-    background-size: cover; */
+  padding: 12rem 0;
+  background: radial-gradient(circle at top right, rgba($secondary-color, 0.35), transparent 55%),
+    radial-gradient(circle at bottom left, rgba($accent-secondary, 0.25), transparent 60%),
+    linear-gradient(135deg, $primary-color 0%, #030712 85%);
+  overflow: hidden;
+  color: $white-color;
 
   @include respond(tab-port) {
-    justify-content: center;
+    padding: 10rem 0 8rem 0;
   }
-  @include respond(phone) {
-    padding: 0rem $default-font-size;
+
+  .hero__content {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
+    gap: 4rem;
+    width: 100%;
+
+    @include respond(tab-port) {
+      grid-template-columns: 1fr;
+      gap: 3.2rem;
+    }
+  }
+
+  .hero__intro {
+    max-width: 620px;
+  }
+
+  .hero__eyebrow {
+    font-family: "Inter", sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba($white-color, 0.6);
+    margin-bottom: 2rem;
   }
 
   .hero-title {
-    font-size: 5.6rem;
-    font-weight: 700;
-    margin-bottom: 3.2rem;
-    text-align: left;
-    span {
-      margin: 0;
-      display: inline-block;
-    }
+    font-size: clamp(4.4rem, 6vw, 6.2rem);
+    margin-bottom: 2.4rem;
+    color: $white-color;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+  }
 
-    @include respond(tab-land) {
-      font-size: 4rem;
-    }
-    @include respond(tab-port) {
-      font-size: 3.6rem;
-      text-align: center;
-    }
-    @include respond(phone) {
-      font-size: 3.5rem;
-      line-height: 1.5;
-    }
-    @include respond(phone-xs) {
-      font-size: 2.8rem;
-    }
+  .hero__subtitle {
+    font-size: 1.8rem;
+    color: rgba($white-color, 0.78);
+    margin-bottom: 3.2rem;
   }
 
   .hero-cta {
     display: flex;
+    flex-wrap: wrap;
+    gap: 1.6rem;
 
-    @include respond(tab-port) {
-      justify-content: center;
+    a {
+      font-size: 1.6rem;
     }
 
-    & a {
-      font-size: 2.4rem;
+    @include respond(phone) {
+      justify-content: flex-start;
+    }
+  }
 
-      @include respond(phone) {
-        font-size: 2rem;
+  .hero__highlights {
+    list-style: none;
+    padding: 2.4rem 2.4rem 2.4rem 3.2rem;
+    margin: 0;
+    background: rgba($white-color, 0.06);
+    border: 1px solid rgba($white-color, 0.12);
+    border-radius: 1.6rem;
+    backdrop-filter: blur(12px);
+    align-self: flex-start;
+
+    li {
+      color: rgba($white-color, 0.82);
+      font-size: 1.6rem;
+      line-height: 1.6;
+      position: relative;
+      padding-left: 1.6rem;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.8rem;
+        width: 0.6rem;
+        height: 0.6rem;
+        border-radius: 50%;
+        background: linear-gradient(135deg, $accent-color, $secondary-color);
       }
+    }
+
+    li + li {
+      margin-top: 1.6rem;
     }
   }
 }
+
 .scroll-down-link {
   position: absolute;
   left: 50%;
-  bottom: 20px;
+  bottom: 24px;
   transform: translateX(-50%);
 }
+
 .scroll-down {
-  height: 50px;
-  width: 30px;
-  border: 2px solid #000000;
-  border-radius: 50px;
+  height: 48px;
+  width: 28px;
+  border: 2px solid rgba($white-color, 0.5);
+  border-radius: 24px;
+  position: relative;
   cursor: pointer;
+
   &::before,
   &::after {
     height: 10px;
@@ -90,41 +125,30 @@
     position: absolute;
     top: 20%;
     left: 50%;
-    border: 2px solid $secondary-color;
+    border: 2px solid $accent-color;
     transform: translate(-50%, -100%) rotate(45deg);
     border-top: none;
     border-left: none;
     animation: scroll-down 1s ease-in-out infinite;
   }
   &::after {
-    top: 30%;
+    top: 35%;
     animation-delay: 0.3s;
   }
 }
 
-@keyframes hidden {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 @keyframes scroll-down {
   0% {
     opacity: 0;
   }
-  30% {
+  40% {
     opacity: 1;
   }
-  60% {
-    opacity: 1;
+  90% {
+    opacity: 0;
+    top: 70%;
   }
   100% {
     opacity: 0;
-    top: 90%;
   }
 }

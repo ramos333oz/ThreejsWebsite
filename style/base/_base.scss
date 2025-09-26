@@ -1,4 +1,4 @@
-* {
+﻿* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -9,6 +9,8 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  text-align: center;
-  line-height: 1.5;
+  background: linear-gradient(160deg, $primary-color 0%, #060b1a 60%, #020510 100%);
+  color: $white-color;
+  line-height: 1.6;
+  text-align: left;
 }

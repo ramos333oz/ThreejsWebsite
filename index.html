@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,58 +7,50 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
 
-    <!-- Title: add your Portfolio websites's title here -->
-    <title>[Your name here] | Developer</title>
+    <title>Omar Moussa Bin Zakaria | Product-Focused Developer</title>
 
-    <!-- Add some coding keywords below, Ex: (javascript, yourusername, etc) -->
-    <meta name="keywords" content="[username], [name], skill" />
-
-    <!-- Improve your SEO by adding a small descrption of you -->
-    <meta name="description" content="[Your name here] | Developer" />
-
-    <!-- Add a your png Logo to the assets folder and change the href attr accordingly  -->
-    <link rel="icon" type="image/png" href="./assets/devfolio-logo.png" />
-
-    <!-- Add your primary-theme color for the value of content -->
-    <meta name="theme-color" content="#36d1dc" />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <!-- Fill content with the URL of this portfolio you'll host -->
-    <meta property="og:url" content="https://devfolio.js.org/" />
-    <!-- Fill content with the title of your portfolio(Recommended to use what you put in <title> tag) -->
-    <meta property="og:title" content="[Your name here] | Developer" />
-    <!-- Give a short description that'll show up when you/someone shares your portfolio on different platform -->
-    <meta property="og:description" content="Made using DevFolio Template" />
-    <!-- Add a thumbnail image in assets folder and fill the content attr with URL to that thumbnail 
-      so that a thumbnail image of your portfolio is shown while shared on other platform -->
     <meta
-      property="og:image"
-      content="https://devfolio.js.org/assets/devfolio.png"
+      name="keywords"
+      content="Omar Moussa Bin Zakaria, web developer, netcentric computing, portfolio, three.js"
+    />
+    <meta
+      name="description"
+      content="Omar Moussa Bin Zakaria builds accessible, content-first digital experiences with tasteful Three.js enhancements."
     />
 
-    <!-- Twitter -->
+    <link rel="icon" type="image/png" href="./assets/devfolio-logo.png" />
+    <meta name="theme-color" content="#0f172a" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://digital-vision.dev" />
+    <meta
+      property="og:title"
+      content="Omar Moussa Bin Zakaria | Product-Focused Developer"
+    />
+    <meta
+      property="og:description"
+      content="Content-first developer crafting performant experiences with tasteful Three.js polish."
+    />
+    <meta property="og:image" content="https://digital-vision.dev/og-image.png" />
+
     <meta property="twitter:card" content="summary_large_image" />
-    <!-- Again fill content attr with the URL of this portfolio you'll host -->
-    <meta property="twitter:url" content="https://devfolio.js.org" />
-    <!-- Recommended to use the same text used within <title> element -->
-    <meta property="twitter:title" content="[Your name here] | Developer" />
-    <!-- short description that shows up while your portfolio is shared -->
+    <meta property="twitter:url" content="https://digital-vision.dev" />
+    <meta
+      property="twitter:title"
+      content="Omar Moussa Bin Zakaria | Product-Focused Developer"
+    />
     <meta
       property="twitter:description"
-      content="Made using DevFolio Template"
+      content="Content-first developer crafting performant experiences with tasteful Three.js polish."
     />
-    <!-- Fill content with the URL to the thumbnail image that you'll put in the assets folder -->
     <meta
       property="twitter:image"
-      content="https://anilseervi.vercel.app/assets/devfolio.png"
+      content="https://digital-vision.dev/og-image.png"
     />
 
-    <!-- link tags -->
     <link rel="preload" as="style" href="./css/main.css" />
     <link rel="stylesheet" href="./css/main.css" />
 
-    <!-- FontAwesome Icons link -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
@@ -67,222 +58,446 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-
-    <!-- Remove Google Analytics once you have your portfolio website set-up -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-122228201-4"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || []
-      function gtag() {
-        dataLayer.push(arguments)
-      }
-      gtag("js", new Date())
-
-      gtag("config", "UA-122228201-4")
-    </script>
-    <!-- End of Google Analytics -->
   </head>
   <body>
-    <!-- Hero Section -->
     <div id="hero">
-      <section class="container">
-        <h1 class="hero-title">
-          Hi, my name is <span class="text-color-main name">Your Name</span>
-          <br />
-          I'm the Unknown Developer.
-        </h1>
-        <p class="hero-cta">
-          <a class="cta-btn cta-btn--hero" href="#about">Get in touch</a>
-        </p>
+      <section class="container hero__content">
+        <div class="hero__intro">
+          <p class="hero__eyebrow">Netcentric Computing Student &middot; Developer</p>
+          <h1 class="hero-title">Omar Moussa Bin Zakaria</h1>
+          <p class="hero__subtitle">
+            I design content-first, accessible experiences that pair rapid delivery
+            with thoughtful polish. My current focus is turning AI curiosity into
+            usable product features while keeping performance budgets in check.
+          </p>
+          <div class="hero-cta">
+            <a class="cta-btn cta-btn--hero" href="#projects">View recent work</a>
+            <a
+              class="cta-btn cta-btn--outline"
+              href="./docs/Resume Upwork.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Download resume</a
+            >
+          </div>
+        </div>
+        <ul class="hero__highlights">
+          <li>Delivers ahead of schedule with meticulous QA.</li>
+          <li>Bridges data insights and engaging interfaces.</li>
+          <li>Champions progressive enhancement for every interaction.</li>
+        </ul>
       </section>
       <a href="#about" class="scroll-down-link" aria-label="scroll-down">
-        <div class="scroll-down"></div
+        <div class="scroll-down"></div>
       ></a>
     </div>
-    <!-- /END Hero Section -->
 
-    <!-- About Section -->
     <section id="about">
       <div class="container">
-        <h2 class="section-title">About Me</h2>
+        <h2 class="section-title">About</h2>
         <div class="row about-wrapper">
           <div class="about-wrapper__image">
             <img
               class="img-fluid"
               src="./assets/profile.png"
-              alt="Profile Image"
+              alt="Portrait of Omar Moussa Bin Zakaria"
               width="450"
               height="350"
             />
           </div>
           <div class="about-wrapper__info">
             <p class="about-wrapper__info-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Temporibus quae repellat, ad omnis distinctio velit saepe expedita
-              architecto cumque veritatis adipisci. Sapiente non, saepe hic
-              adipisci doloribus quisquam recusandae et.
+              I am a third-year Bachelor of Computer Science (Hons.) Netcentric
+              Computing student at UiTM Shah Alam with a CGPA of 3.45. I love
+              translating curiosity about emerging technology into tangible
+              solutions, and I am known for delivering polished, accessible work
+              ahead of deadlines.
             </p>
             <p class="about-wrapper__info-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
-              obcaecati doloribus qui praesentium quae veniam esse mollitia
-              consequuntur nisi minima quasi et fugit quidem enim recusandae
-              delectus, iusto culpa rerum?
+              Whether I am prototyping real-time sports experiences or building IoT
+              wearables for safety, I care about pairing resilient engineering with
+              empathetic design. Collaboration, knowledge sharing, and continuous
+              learning keep me energised.
             </p>
+            <div class="about-wrapper__info-grid">
+              <div class="about-pill">
+                <h3>What drives me</h3>
+                <p>Content-first experiences that remain fast and accessible.</p>
+              </div>
+              <div class="about-pill">
+                <h3>How I work</h3>
+                <p>Iterative delivery, transparent communication, and QA baked in.</p>
+              </div>
+              <div class="about-pill">
+                <h3>Currently exploring</h3>
+                <p>Progressive Three.js hero scenes that respect performance.</p>
+              </div>
+            </div>
             <span class="about-wrapper__cta">
-              <a href="#" class="cta-btn cta-btn--resume">View Resume</a>
+              <a href="#contact" class="cta-btn cta-btn--resume">Let's collaborate</a>
             </span>
           </div>
         </div>
       </div>
     </section>
-    <!-- /END About Section -->
 
-    <!--Projects Section-->
+    <section id="skills" class="section--light">
+      <div class="container">
+        <h2 class="section-title dark-blue-text">Core Skills</h2>
+        <div class="skills-grid">
+          <article class="skills-card">
+            <h3>Web</h3>
+            <ul class="skills-list">
+              <li>Semantic HTML, modern CSS, responsive design</li>
+              <li>JavaScript (ES Modules), React, Vite</li>
+              <li>Accessibility-first workflows</li>
+            </ul>
+          </article>
+          <article class="skills-card">
+            <h3>Backend &amp; Data</h3>
+            <ul class="skills-list">
+              <li>Node.js, Supabase (PostgreSQL)</li>
+              <li>SQL, schema design, API integration</li>
+              <li>pgvector similarity search</li>
+            </ul>
+          </article>
+          <article class="skills-card">
+            <h3>ML &amp; Algorithms</h3>
+            <ul class="skills-list">
+              <li>K-Nearest Neighbours for ranking</li>
+              <li>Vector embeddings for matching</li>
+              <li>Data storytelling and visualisation</li>
+            </ul>
+          </article>
+          <article class="skills-card">
+            <h3>IoT &amp; Hardware</h3>
+            <ul class="skills-list">
+              <li>Arduino and ESP32 prototyping</li>
+              <li>GPS, GSM, sensor integration</li>
+              <li>Blynk dashboards and remote alerts</li>
+            </ul>
+          </article>
+          <article class="skills-card">
+            <h3>Tools &amp; Practices</h3>
+            <ul class="skills-list">
+              <li>Git and GitHub collaboration</li>
+              <li>Performance profiling and audits</li>
+              <li>CLI workflows and documentation</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section id="projects">
       <div class="container">
         <div class="project-wrapper">
-          <h2 class="section-title dark-blue-text">Projects</h2>
+          <h2 class="section-title dark-blue-text">Featured Projects</h2>
 
-          <!-- Each .row is a project -->
-          <article class="row">
+          <article class="row project-card">
             <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">Project Title</h3>
+              <h3 class="project-wrapper__text-title">
+                Real-Time Sports Team-Up Platform
+              </h3>
               <p class="project-wrapper__text-info">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deleniti voluptas, sit nam perspiciatis tempore aspernatur ullam
-                necessitatibus impedit repellendus vero sed ipsa eos beatae ab
-                sint saepe nostrum! Enim, perferendis.
+                A crowdsourcing web app for creating and joining pick-up games in
+                real time. Hosts publish match openings while an algorithm ranks
+                players using vector embeddings and KNN similarity to deliver
+                balanced teams.
               </p>
+              <ul class="project-wrapper__meta">
+                <li><strong>Role:</strong> Full-stack implementer and algorithm designer</li>
+                <li><strong>Stack:</strong> React, Vite, Node.js, Supabase (PostgreSQL), pgvector</li>
+              </ul>
+              <ul class="project-wrapper__tags">
+                <li>Real-time UX</li>
+                <li>Matching algorithms</li>
+                <li>Accessibility</li>
+              </ul>
               <div class="project-wrapper__text-btns">
                 <a
-                  href="#"
+                  href="#projects"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="cta-btn cta-btn--hero cta-btn--projects"
-                  >See Live</a
+                  >Prototype walkthrough</a
                 >
-                <a href="#" target="_blank" class="cta-btn text-color-main"
-                  >Source Code</a
+                <a
+                  href="https://github.com/yourusername/sports-teamup"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="cta-btn text-color-main"
+                  >Source (private excerpt)</a
                 >
               </div>
             </div>
 
             <div class="project-wrapper__image">
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <div class="thumbnail rounded">
-                  <img
-                    src="./assets/project.png"
-                    class="img-fluid"
-                    alt="Project Image"
-                    width="1366"
-                    height="767"
-                  />
-                </div>
-              </a>
+              <div class="thumbnail rounded">
+                <img
+                  src="./assets/project.png"
+                  class="img-fluid"
+                  alt="Screens showing the sports team-up dashboard"
+                  width="1366"
+                  height="767"
+                />
+              </div>
             </div>
           </article>
-          <!-- /END Project -->
 
-          <!-- Each .row is a project -->
-          <article class="row">
+          <article class="row project-card">
             <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">Project Title</h3>
+              <h3 class="project-wrapper__text-title">
+                Permit ML Scraper and Map Visualisation
+              </h3>
               <p class="project-wrapper__text-info">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deleniti voluptas, sit nam perspiciatis tempore aspernatur ullam
-                necessitatibus impedit repellendus vero sed ipsa eos beatae ab
-                sint saepe nostrum! Enim, perferendis.
+                Automated pipeline scraping 35-plus Southern California city permit
+                portals, normalising records, and displaying eligibility through an
+                interactive map with drive-time overlays for field teams.
               </p>
+              <ul class="project-wrapper__meta">
+                <li><strong>Role:</strong> Web scraper developer and data viz integrator</li>
+                <li><strong>Stack:</strong> Node.js, Puppeteer, Leaflet, REST APIs</li>
+              </ul>
+              <ul class="project-wrapper__tags">
+                <li>Automation</li>
+                <li>Data storytelling</li>
+                <li>Ops enablement</li>
+              </ul>
               <div class="project-wrapper__text-btns">
                 <a
-                  href="#"
+                  href="#projects"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="cta-btn cta-btn--hero cta-btn--projects"
-                  >See Live</a
+                  >Process notes</a
                 >
-                <a href="#" target="_blank" class="cta-btn text-color-main"
-                  >Source Code</a
+                <a
+                  href="https://github.com/yourusername/permit-ml-map"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="cta-btn text-color-main"
+                  >Source summary</a
                 >
               </div>
             </div>
 
             <div class="project-wrapper__image">
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <div class="thumbnail rounded">
-                  <img
-                    src="./assets/project.png"
-                    class="img-fluid"
-                    alt="Project Image"
-                    width="1366"
-                    height="767"
-                  />
-                </div>
-              </a>
+              <div class="thumbnail rounded">
+                <img
+                  src="./assets/project.png"
+                  class="img-fluid"
+                  alt="Map visualisation highlighting city permits"
+                  width="1366"
+                  height="767"
+                />
+              </div>
             </div>
           </article>
-          <!-- /END Project -->
 
-          <!-- Each .row is a project -->
-          <article class="row">
+          <article class="row project-card">
             <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">Project Title</h3>
+              <h3 class="project-wrapper__text-title">Child Safety Wearable IoT</h3>
               <p class="project-wrapper__text-info">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deleniti voluptas, sit nam perspiciatis tempore aspernatur ullam
-                necessitatibus impedit repellendus vero sed ipsa eos beatae ab
-                sint saepe nostrum! Enim, perferendis.
+                Wearable device that tracks a child's location, environmental data,
+                and SOS alerts. Parents receive real-time notifications via GSM while
+                monitoring a Blynk dashboard.
               </p>
+              <ul class="project-wrapper__meta">
+                <li><strong>Role:</strong> IoT system designer and firmware developer</li>
+                <li><strong>Stack:</strong> Arduino, ESP32, GPS and GSM modules, Blynk Cloud</li>
+              </ul>
+              <ul class="project-wrapper__tags">
+                <li>IoT safety</li>
+                <li>Hardware prototyping</li>
+                <li>Real-time dashboards</li>
+              </ul>
               <div class="project-wrapper__text-btns">
                 <a
-                  href="#"
+                  href="#projects"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="cta-btn cta-btn--hero cta-btn--projects"
-                  >See Live</a
+                  >Demo recap</a
                 >
-                <a href="#" target="_blank" class="cta-btn text-color-main"
-                  >Source Code</a
+                <a
+                  href="https://github.com/yourusername/child-safety-wearable"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="cta-btn text-color-main"
+                  >Hardware notes</a
                 >
               </div>
             </div>
 
             <div class="project-wrapper__image">
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <div class="thumbnail rounded">
-                  <img
-                    src="./assets/project.png"
-                    class="img-fluid"
-                    alt="Project Image"
-                    width="1366"
-                    height="767"
-                  />
-                </div>
-              </a>
+              <div class="thumbnail rounded">
+                <img
+                  src="./assets/project.png"
+                  class="img-fluid"
+                  alt="Wearable device prototype with sensors"
+                  width="1366"
+                  height="767"
+                />
+              </div>
             </div>
           </article>
-          <!-- /END Project -->
+
+          <article class="row project-card">
+            <div class="project-wrapper__text">
+              <h3 class="project-wrapper__text-title">DVWA Security Analysis</h3>
+              <p class="project-wrapper__text-info">
+                Security assessment exercises using DVWA on Kali Linux, covering
+                vulnerabilities, exploitation paths, and mitigation strategies to
+                strengthen web application posture.
+              </p>
+              <ul class="project-wrapper__meta">
+                <li><strong>Role:</strong> Security analyst and documentation owner</li>
+                <li><strong>Stack:</strong> DVWA, Kali Linux toolkit, OWASP practices</li>
+              </ul>
+              <ul class="project-wrapper__tags">
+                <li>Security</li>
+                <li>Vulnerability testing</li>
+                <li>Process documentation</li>
+              </ul>
+              <div class="project-wrapper__text-btns">
+                <a
+                  href="#projects"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="cta-btn cta-btn--hero cta-btn--projects"
+                  >Case study PDF</a
+                >
+                <a
+                  href="https://github.com/yourusername/dvwa-security"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="cta-btn text-color-main"
+                  >Security notes</a
+                >
+              </div>
+            </div>
+
+            <div class="project-wrapper__image">
+              <div class="thumbnail rounded">
+                <img
+                  src="./assets/project.png"
+                  class="img-fluid"
+                  alt="Security analysis dashboard"
+                  width="1366"
+                  height="767"
+                />
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
-    <!-- End Projects Section -->
 
-    <!-- Contact Section -->
+    <section id="education" class="section--light">
+      <div class="container">
+        <h2 class="section-title dark-blue-text">Education</h2>
+        <div class="timeline">
+          <article class="timeline__item">
+            <h3 class="timeline__heading">
+              Universiti Teknologi MARA (UiTM), Shah Alam
+            </h3>
+            <p class="timeline__meta">Bachelor of Computer Science (Hons.) Netcentric Computing &mdash; 2022 to Present</p>
+            <ul>
+              <li>Current CGPA: 3.45; Dean's Award (Semester 5 and 6)</li>
+              <li>Focusing on networked systems, performance, and progressive web apps</li>
+            </ul>
+          </article>
+
+          <article class="timeline__item">
+            <h3 class="timeline__heading">Selangor Matriculation College</h3>
+            <p class="timeline__meta">Matriculation Foundations &mdash; 2021 to 2022</p>
+            <ul>
+              <li>CGPA: 3.54; MUET Band 4.0</li>
+              <li>Built strong fundamentals in mathematics, computing, and collaboration</li>
+            </ul>
+          </article>
+
+          <article class="timeline__item">
+            <h3 class="timeline__heading">Sijil Pelajaran Malaysia (SPM)</h3>
+            <p class="timeline__meta">Science stream &mdash; 2019 to 2020</p>
+            <ul>
+              <li>Laid the groundwork for engineering problem-solving and leadership</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="certificates">
+      <div class="container">
+        <h2 class="section-title dark-blue-text">Certificates and Awards</h2>
+        <div class="certificates-grid">
+          <article class="certificate-card">
+            <h3>IBM</h3>
+            <p>Introduction to Artificial Intelligence</p>
+            <span class="certificate-card__meta">February 2025</span>
+          </article>
+          <article class="certificate-card">
+            <h3>Cisco</h3>
+            <p>Introduction to IoT</p>
+            <span class="certificate-card__meta">June 2024</span>
+          </article>
+          <article class="certificate-card">
+            <h3>Google Cloud</h3>
+            <p>Cloud Computing Foundations Series</p>
+            <ul>
+              <li>Cloud Computing Fundamentals</li>
+              <li>Data, ML, and AI in Google Cloud</li>
+              <li>Infrastructure in Google Cloud</li>
+              <li>Networking and Security in Google Cloud</li>
+            </ul>
+            <span class="certificate-card__meta">February 2024</span>
+          </article>
+          <article class="certificate-card">
+            <h3>AWS</h3>
+            <p>Cloud Practitioner Essentials</p>
+            <span class="certificate-card__meta">February 2024</span>
+          </article>
+          <article class="certificate-card">
+            <h3>UiTM</h3>
+            <p>Dean's List Awards (Semester 5 and 6)</p>
+            <span class="certificate-card__meta">2025</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section id="contact">
       <div class="container">
-        <h2 class="section-title">Contact</h2>
+        <h2 class="section-title">Let's Build Together</h2>
         <div class="contact-wrapper">
-          <p class="contact-wrapper__text">[Put your call to action here]</p>
-          <a href="#" class="cta-btn cta-btn--resume">Call to Action</a>
+          <p class="contact-wrapper__text">
+            I am excited about software roles that blend product thinking, real-time
+            data, and immersive web experiences. If you are looking for someone who
+            delivers fast without sacrificing craft, let's connect.
+          </p>
+          <div class="contact-wrapper__channels">
+            <a class="cta-btn cta-btn--resume" href="mailto:hello@omar.dev">Email me</a>
+            <a
+              class="contact-link"
+              href="https://www.linkedin.com/in/your-profile"
+              target="_blank"
+              rel="noopener noreferrer"
+              >LinkedIn</a
+            >
+            <a
+              class="contact-link"
+              href="https://github.com/yourusername"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub</a
+            >
+          </div>
         </div>
       </div>
     </section>
-    <!-- END Contact Section -->
 
-    <!-- Footer Section -->
     <footer class="footer">
       <div class="container">
         <a href="#hero" class="back-to-top" aria-label="go back to top">
@@ -290,59 +505,37 @@
         </a>
         <div class="social-links">
           <a
-            href="#!"
+            href="https://github.com/yourusername"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="twitter"
+            aria-label="GitHub"
           >
-            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-github"></i>
           </a>
           <a
-            href="#!"
+            href="https://www.linkedin.com/in/your-profile"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="instagram"
-          >
-            <i class="fa-brands fa-instagram"></i>
-          </a>
-          <a
-            href="#!"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="codepen"
-          >
-            <i class="fa-brands fa-codepen"></i>
-          </a>
-          <a
-            href="#!"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="linkedin"
+            aria-label="LinkedIn"
           >
             <i class="fa-brands fa-linkedin"></i>
           </a>
           <a
-            href="#!"
+            href="mailto:hello@omar.dev"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="github"
+            aria-label="Email"
           >
-            <i class="fa-brands fa-github"></i>
+            <i class="fa-solid fa-envelope"></i>
           </a>
         </div>
         <hr />
         <p class="footer__text">
-          &copy; <span id="year"></span> - Template by
-          <a
-            href="https://github.com/AnilSeervi"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Anil Seervi</a
-          >. <br />Made with &hearts;
+          &copy; <span id="year"></span> Omar Moussa Bin Zakaria. Crafted with focus on accessibility,
+          performance, and a hint of Three.js curiosity.
         </p>
       </div>
     </footer>
-    <!-- END Footer Section -->
 
     <script type="module" src="./main.js"></script>
   </body>
