@@ -1,55 +1,181 @@
 ﻿#certificates {
-  background: rgba($white-color, 0.98);
+  background: rgba($light-white, 0.94);
 
-  .certificates-grid {
-    display: grid;
-    gap: 2.4rem;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .section-title {
+    text-align: left;
+  }
 
-    @include respond(tab-land) {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+  .certificate-badges {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 3.6rem;
+    padding: 3.6rem 0 2rem;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  .certificate-badge {
+    --badge-bg: linear-gradient(145deg, rgba($secondary-color, 0.32) 0%, rgba($accent-color, 0.35) 100%);
+    --badge-glow: rgba($secondary-color, 0.18);
+    --badge-overlay: linear-gradient(180deg, rgba(10, 14, 35, 0) 0%, rgba(10, 14, 35, 0.78) 100%);
+    position: relative;
+    width: 220px;
+    aspect-ratio: 1 / 1;
+    border-radius: 2.8rem;
+    background: var(--badge-bg);
+    box-shadow: 0 36px 80px var(--badge-glow);
+    border: 1px solid rgba($white-color, 0.12);
+    overflow: hidden;
+    transition: transform 0.45s ease, box-shadow 0.45s ease, border-color 0.45s ease;
+    isolation: isolate;
+    flex: 0 0 auto;
+
+    &:hover,
+    &:focus-visible {
+      transform: translateY(-10px);
+      box-shadow: 0 44px 90px rgba($secondary-color, 0.28);
+      border-color: rgba($white-color, 0.22);
     }
 
-    @include respond(phone) {
-      grid-template-columns: 1fr;
+    &:focus-visible {
+      outline: 2px solid rgba($accent-color, 0.65);
+      outline-offset: 6px;
     }
   }
 
-  .certificate-card {
-    background: $white-color;
-    border-radius: 1.6rem;
-    padding: 2.4rem;
-    border: 1px solid rgba($secondary-color, 0.1);
-    box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+  .certificate-badge__face {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+
+    img {
+      width: 76%;
+      height: auto;
+      object-fit: contain;
+      padding: 1.4rem;
+      border-radius: 1.8rem;
+      background: rgba($white-color, 0.94);
+      box-shadow: 0 24px 40px rgba(0, 0, 0, 0.12);
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
+    }
+  }
+
+  .certificate-badge__info {
+    position: absolute;
+    inset: 0;
+    padding: 3.2rem 2.6rem;
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
     gap: 1rem;
+    background: var(--badge-overlay);
+    color: $white-color;
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+    font-size: 1.4rem;
+  }
 
-    h3 {
-      font-size: 1.8rem;
-      color: $secondary-color;
-    }
+  .certificate-badge__issuer {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-weight: 600;
+    color: rgba($white-color, 0.82);
+  }
 
-    p {
-      font-size: 1.5rem;
-      color: $dark-blue-text;
-    }
+  .certificate-badge__title {
+    font-family: "Space Grotesk", "Montserrat", sans-serif;
+    font-size: 2.05rem;
+    font-weight: 600;
+    line-height: 1.32;
+    margin: 0;
+  }
 
-    ul {
-      padding-left: 1.6rem;
-      color: $muted-text;
+  .certificate-badge__note {
+    font-size: 1.38rem;
+    line-height: 1.5;
+    color: rgba($white-color, 0.78);
+  }
 
-      li {
-        margin-bottom: 0.4rem;
-      }
+  .certificate-badge__date {
+    font-size: 1.32rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba($white-color, 0.92);
+  }
+
+  .certificate-badge:hover .certificate-badge__info,
+  .certificate-badge:focus-visible .certificate-badge__info {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .certificate-badge:hover .certificate-badge__face,
+  .certificate-badge:focus-visible .certificate-badge__face {
+    transform: translateY(-20px) scale(0.9);
+
+    img {
+      box-shadow: 0 28px 48px rgba(0, 0, 0, 0.24);
     }
   }
 
-  .certificate-card__meta {
-    font-size: 1.3rem;
-    color: $muted-text;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+  .certificate-badge--ibm {
+    --badge-bg: linear-gradient(140deg, #0f62fe 0%, #001d6c 100%);
+    --badge-glow: rgba(15, 98, 254, 0.34);
+    --badge-overlay: linear-gradient(185deg, rgba(5, 15, 40, 0) 10%, rgba(5, 15, 40, 0.82) 100%);
+  }
+
+  .certificate-badge--cisco {
+    --badge-bg: linear-gradient(140deg, #00a0e3 0%, #006b8f 100%);
+    --badge-glow: rgba(0, 160, 227, 0.34);
+    --badge-overlay: linear-gradient(185deg, rgba(2, 26, 40, 0) 10%, rgba(2, 26, 40, 0.86) 100%);
+  }
+
+  .certificate-badge--google {
+    --badge-bg: linear-gradient(150deg, #4285f4 0%, #34a853 45%, #fbbc05 75%, #ea4335 100%);
+    --badge-glow: rgba(66, 133, 244, 0.35);
+    --badge-overlay: linear-gradient(185deg, rgba(9, 16, 38, 0) 15%, rgba(9, 16, 38, 0.88) 100%);
+  }
+
+  .certificate-badge--aws {
+    --badge-bg: linear-gradient(150deg, #f7901e 0%, #f9a743 45%, #232f3e 100%);
+    --badge-glow: rgba(247, 144, 30, 0.35);
+    --badge-overlay: linear-gradient(185deg, rgba(30, 22, 10, 0) 10%, rgba(30, 22, 10, 0.88) 100%);
+  }
+
+  .certificate-badge--uitm {
+    --badge-bg: linear-gradient(150deg, #4c1d95 0%, #9333ea 60%, #facc15 100%);
+    --badge-glow: rgba(147, 51, 234, 0.32);
+    --badge-overlay: linear-gradient(185deg, rgba(37, 10, 44, 0) 10%, rgba(37, 10, 44, 0.9) 100%);
+  }
+
+  @include respond(tab-port) {
+    .certificate-badge {
+      width: 200px;
+    }
+  }
+
+  @include respond(phone) {
+    .certificate-badges {
+      gap: 2rem;
+      padding: 3rem 0 1.6rem;
+      overflow-x: auto;
+    }
+
+    .certificate-badge {
+      width: 180px;
+    }
+  }
+
+  @include respond(phone-xs) {
+    .certificate-badge {
+      width: 160px;
+    }
   }
 }
