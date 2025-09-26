@@ -46,7 +46,7 @@ Decision notes
   - /public/ (images, icons, pdf resume)
   - /src/styles/ (tokens.css, global.css)
   - /src/js/ (main.js, three‑hero.js later)
-  - /index.html (single‑page portfolio)
+  - /index.html (single‑page portfolio)76
 
 ---
 
