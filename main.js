@@ -5,5 +5,8 @@ import { initTilt } from "./javascript/valtilt"
 initScrollReveal()
 initTilt()
 
-document.getElementById("year").textContent = new Date().getFullYear()
+const footerYear = document.getElementById("year")
+if (footerYear) {
+  footerYear.textContent = new Date().getFullYear()
+}
 
