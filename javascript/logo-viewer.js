@@ -62,7 +62,6 @@ class LogoViewer {
       (gltf) => {
         this.anchor.clear()
         this.model = gltf.scene
-        this.normalizeGeometry(this.model)
         this.anchor.add(this.model)
         this.frameModel()
       },
@@ -71,19 +70,6 @@ class LogoViewer {
         console.error(`Failed to load model ${this.modelUrl}`, error)
       }
     )
-  }
-
-  normalizeGeometry(root) {
-    root.traverse((child) => {
-      if (child.isMesh && child.geometry) {
-        child.geometry = child.geometry.clone()
-        child.geometry.computeBoundingBox()
-        child.geometry.center()
-        child.position.set(0, 0, 0)
-        child.rotation.set(0, 0, 0)
-        child.updateMatrix()
-      }
-    })
   }
 
   frameModel() {
@@ -127,3 +113,6 @@ export function initLogoViewers() {
     container.__logoViewerInstance = new LogoViewer(container, modelUrl)
   }
 }
+
+
+
