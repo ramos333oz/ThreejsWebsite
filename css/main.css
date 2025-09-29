@@ -1014,6 +1014,58 @@ section .row span {
   color: #ffffff;
   text-align: center;
 }
+#contact .contact-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  max-width: 36rem;
+  margin: 2.5rem auto 3.5rem;
+}
+#contact .contact-stack__description {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 32ch;
+  margin: 1rem auto 0;
+  font-size: 1.6rem;
+}
+#contact .contact-stack__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+}
+#contact .contact-stack__viewer {
+  width: min(40rem, 80vw);
+  aspect-ratio: 1/1;
+  border-radius: 1.8rem;
+  border: none;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+}
+#contact .contact-stack__viewer canvas {
+  width: 110% !important;
+  height: 110% !important;
+  display: block;
+}
+#contact .contact-stack__title {
+  font-weight: 600;
+  text-transform: lowercase;
+}
+#contact .contact-stack__subtitle {
+  color: rgba(255, 255, 255, 0.75);
+  text-transform: lowercase;
+}
+@media (min-width: 768px) {
+  #contact .contact-stack {
+    gap: 4rem;
+  }
+  #contact .contact-stack__viewer {
+    width: 30rem;
+  }
+}
 #contact .contact-wrapper {
   margin-top: 3.2rem;
   padding: 0 2rem;
@@ -1048,5 +1100,3 @@ section .row span {
   transform: translateY(-4px);
   background: rgba(255, 255, 255, 0.12);
 }
-
-/*# sourceMappingURL=main.css.map */
