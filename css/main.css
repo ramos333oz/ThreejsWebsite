@@ -1044,12 +1044,6 @@ section .row span {
   background: transparent;
   position: relative;
   overflow: hidden;
-  cursor: pointer;
-  outline: none;
-  transition: box-shadow 0.25s ease;
-}
-#contact .contact-stack__viewer:focus-visible {
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.4);
 }
 #contact .contact-stack__viewer canvas {
   width: 100% !important;
@@ -1106,3 +1100,5 @@ section .row span {
   transform: translateY(-4px);
   background: rgba(255, 255, 255, 0.12);
 }
+
+/*# sourceMappingURL=main.css.map */

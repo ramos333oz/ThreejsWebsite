@@ -29,13 +29,12 @@ class LogoViewer {
     this.focused = false
     this.isHovered = false
 
-    this.baseScaleValue = 1
-    this.baseScaleVec = new THREE.Vector3(1, 1, 1)
-    this.hoverScaleVec = new THREE.Vector3(1, 1, 1)
-    this.targetScaleVec = new THREE.Vector3(1, 1, 1)
+    this.anchorBasePosition = new THREE.Vector3()
+    this.currentLift = 0
+    this.targetLift = 0
 
     this.motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
-    this.hoverScaleFactor = this.motionQuery.matches ? 1.03 : 1.12
+    this.hoverLift = this.motionQuery.matches ? 0.08 : 0.22
     this.handleMotionPreferenceChange = this.handleMotionPreferenceChange.bind(this)
     if (this.motionQuery.addEventListener) {
       this.motionQuery.addEventListener("change", this.handleMotionPreferenceChange)
@@ -64,6 +63,7 @@ class LogoViewer {
 
     this.clock = new THREE.Clock()
     this.rotationSpeed = 0.35
+
     this.animate = this.animate.bind(this)
     this.renderer.setAnimationLoop(this.animate)
 
@@ -126,35 +126,18 @@ class LogoViewer {
 
   frameModel() {
     this.anchor.updateMatrixWorld(true)
-    const sizeBox = new THREE.Box3().setFromObject(this.anchor)
-    const size = sizeBox.getSize(new THREE.Vector3())
-    const maxDim = Math.max(size.x, size.y, size.z)
-    const targetSize = 1.8
-    const scale = maxDim > 0 ? targetSize / maxDim : 1
-    this.anchor.scale.setScalar(scale)
-
-    this.anchor.updateMatrixWorld(true)
     const centerBox = new THREE.Box3().setFromObject(this.anchor)
     const center = centerBox.getCenter(new THREE.Vector3())
     this.anchor.position.sub(center)
     this.anchor.updateMatrixWorld(true)
 
-    this.refreshScaleVectors(scale)
+    this.anchorBasePosition.copy(this.anchor.position)
+    this.currentLift = 0
+    this.targetLift = 0
     this.updateHoverState()
 
     this.camera.position.set(0, 0, 4)
     this.camera.lookAt(new THREE.Vector3(0, 0, 0))
-  }
-
-  refreshScaleVectors(baseScale) {
-    if (typeof baseScale === "number") {
-      this.baseScaleValue = baseScale
-    }
-    this.baseScaleVec.setScalar(this.baseScaleValue)
-    this.hoverScaleVec.copy(this.baseScaleVec).multiplyScalar(this.hoverScaleFactor)
-    const active = this.isHovered ? this.hoverScaleVec : this.baseScaleVec
-    this.targetScaleVec.copy(active)
-    this.anchor.scale.copy(active)
   }
 
   handlePointerMove(event) {
@@ -216,19 +199,24 @@ class LogoViewer {
     const shouldHover = this.focused || this.pointerHover
     if (shouldHover === this.isHovered) return
     this.isHovered = shouldHover
-    this.targetScaleVec.copy(this.isHovered ? this.hoverScaleVec : this.baseScaleVec)
+    this.targetLift = this.isHovered ? this.hoverLift : 0
   }
 
   handleMotionPreferenceChange() {
-    this.hoverScaleFactor = this.motionQuery.matches ? 1.03 : 1.12
-    this.refreshScaleVectors()
+    this.hoverLift = this.motionQuery.matches ? 0.08 : 0.22
   }
 
   animate() {
     const delta = this.clock.getDelta()
     this.pivot.rotation.y += this.rotationSpeed * delta
-    const easing = this.motionQuery.matches ? 0.2 : 0.1
-    this.anchor.scale.lerp(this.targetScaleVec, easing)
+    const easing = this.motionQuery.matches ? 0.18 : 0.12
+    this.currentLift += (this.targetLift - this.currentLift) * easing
+    this.anchor.position.set(
+      this.anchorBasePosition.x,
+      this.anchorBasePosition.y + this.currentLift,
+      this.anchorBasePosition.z
+    )
+
     this.render()
   }
 
