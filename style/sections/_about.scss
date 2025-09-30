@@ -2,84 +2,133 @@
   background: transparent;
   color: $ink-body;
 
-  .about-wrapper {
+  .about-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(2.4rem, 2vw + 1.8rem, 4rem);
+
+    @include respond(tab-port) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .about-card {
     position: relative;
-    z-index: 1;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 3.2rem;
+    background: $surface-card;
+    border: 1px solid $surface-border;
+    border-radius: 2.4rem;
+    box-shadow: $shadow-soft;
+    backdrop-filter: blur(12px);
+    padding: clamp(2.6rem, 1.6vw + 2rem, 3.6rem);
+    display: grid;
+    gap: clamp(1.6rem, 1.5vw + 1rem, 2.4rem);
+
+    &--bio {
+      align-content: start;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    &--bio::before {
+      content: "";
+      position: absolute;
+      inset: -45% -25% 35% -25%;
+      background:
+        radial-gradient(circle at 25% 20%, rgba($accent-secondary, 0.35) 0%, rgba($accent-secondary, 0) 60%),
+        radial-gradient(circle at 75% 75%, rgba($accent-color, 0.28) 0%, rgba($accent-color, 0) 72%);
+      opacity: 0.55;
+      pointer-events: none;
+    }
+
+    &--bio > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    &--story {
+      align-content: start;
+    }
+  }
+
+  .about-card__media {
+    display: grid;
+    place-items: center;
+
+    img {
+      width: min(28rem, 100%);
+      height: auto;
+      border-radius: 1.8rem;
+      box-shadow: 0 24px 54px rgba($primary-color, 0.2);
+    }
+  }
+
+  .about-card__meta {
+    display: grid;
+    gap: 0.8rem;
+    text-align: center;
+    color: $ink-subtle;
+
+    .about-meta__role {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: $ink-strong;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .about-meta__stat {
+      font-size: 1.4rem;
+      letter-spacing: 0.04em;
+    }
+  }
+
+  .about-card__text {
+    display: grid;
+    gap: 1.6rem;
+
+    p {
+      color: $ink-body;
+      line-height: 1.7;
+    }
+  }
+
+  .about-card__highlights {
+    display: grid;
+    gap: 1.6rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
     @include respond(phone) {
       grid-template-columns: 1fr;
     }
-
-    &__image {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      .about-photo {
-        padding: 0;
-
-        img {
-          max-width: 320px;
-          width: 100%;
-          border-radius: inherit;
-          display: block;
-        }
-      }
-
-      @include respond(tab-port-sm) {
-        margin-bottom: 3.2rem;
-      }
-    }
-
-    &__info {
-      display: grid;
-      gap: 2.4rem;
-      text-align: left;
-    }
-
-    &__copy {
-      padding: clamp(2.4rem, 1.3vw + 1.8rem, 3.2rem);
-
-      p {
-        color: $ink-body;
-      }
-    }
-
-    &__info-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.6rem;
-
-      @include respond(tab-port) {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      @include respond(phone) {
-        grid-template-columns: 1fr;
-      }
-    }
-  }
-}
-
-.about-pill {
-  padding: clamp(2rem, 1.2vw + 1.4rem, 2.6rem);
-  display: grid;
-  gap: 1rem;
-
-  h3 {
-    font-size: 1.6rem;
-    color: $ink-strong;
-    letter-spacing: 0.02em;
   }
 
-  p {
-    color: $ink-subtle;
-    font-size: 1.5rem;
-  }
-}
+  .about-highlight {
+    padding: clamp(1.8rem, 1.3vw + 1.4rem, 2.4rem);
+    border-radius: 1.8rem;
+    background: rgba($white-color, 0.18);
+    border: 1px solid rgba($accent-secondary, 0.2);
+    box-shadow: 0 18px 42px rgba($primary-color, 0.12);
 
-.about-wrapper__cta {
-  margin-top: 1.6rem;
+    h3 {
+      font-size: 1.6rem;
+      color: $ink-strong;
+      margin-bottom: 0.8rem;
+    }
+
+    p {
+      color: $ink-subtle;
+      font-size: 1.45rem;
+      line-height: 1.6;
+    }
+  }
+
+  .about-card__cta {
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-card__cta .cta-btn {
+    background: linear-gradient(135deg, $accent-color 0%, $accent-secondary 100%);
+    box-shadow: 0 24px 54px rgba($accent-secondary, 0.24);
+  }
 }

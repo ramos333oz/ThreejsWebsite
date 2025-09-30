@@ -90,51 +90,53 @@
       </a>
     </section>
 
-    <section id="about" class="section section--about" aria-labelledby="about-title">
+        <section id="about" class="section section--about" aria-labelledby="about-title">
       <div class="container">
-        <div class="section-intro">
+        <div class="section-intro section-intro--center">
           <p class="section-eyebrow">Profile</p>
           <h2 class="section-title" id="about-title">About</h2>
           <p class="section-lede">
             I am a third-year Bachelor of Computer Science (Hons.) Netcentric Computing student at UiTM Shah Alam with a CGPA of 3.45, known for delivering polished, accessible work ahead of deadlines.
           </p>
         </div>
-        <div class="row about-wrapper">
-          <div class="about-wrapper__image">
-            <div class="about-photo surface-card">
+        <div class="about-grid">
+          <article class="about-card about-card--bio">
+            <div class="about-card__media">
               <img
-                class="img-fluid"
                 src="./assets/profile.png"
                 alt="Portrait of Omar Moussa Bin Zakaria"
                 width="450"
                 height="350"
               />
             </div>
-          </div>
-          <div class="about-wrapper__info">
-            <div class="about-wrapper__copy surface-card">
+            <div class="about-card__meta">
+              <span class="about-meta__role">Product-Focused Developer</span>
+              <span class="about-meta__stat">CGPA 3.45 � UiTM Shah Alam</span>
+            </div>
+          </article>
+          <article class="about-card about-card--story">
+            <div class="about-card__text">
               <p>
                 Whether I am prototyping real-time sports experiences or building IoT wearables for safety, I care about pairing resilient engineering with empathetic design. Collaboration, knowledge sharing, and continuous learning keep me energised.
               </p>
+              <p>
+                Beyond coursework, I explore performance-conscious Three.js hero scenes, mentor peers on docs-driven workflows, and maintain a delivery cadence that keeps teams ahead of schedule.
+              </p>
             </div>
-            <div class="about-wrapper__info-grid">
-              <article class="about-pill surface-card">
+            <div class="about-card__highlights">
+              <div class="about-highlight">
                 <h3>What drives me</h3>
-                <p>Content-first experiences that remain fast and accessible.</p>
-              </article>
-              <article class="about-pill surface-card">
+                <p>Crafting accessible, performant products that feel intentional.</p>
+              </div>
+              <div class="about-highlight">
                 <h3>How I work</h3>
-                <p>Iterative delivery, transparent communication, and QA baked in.</p>
-              </article>
-              <article class="about-pill surface-card">
-                <h3>Currently exploring</h3>
-                <p>Progressive Three.js hero scenes that respect performance.</p>
-              </article>
+                <p>Small iterative releases, transparent communication, QA baked in.</p>
+              </div>
             </div>
-            <span class="about-wrapper__cta">
-              <a href="#contact" class="cta-btn cta-btn--resume">Let's collaborate</a>
-            </span>
-          </div>
+            <div class="about-card__cta">
+              <a href="#contact" class="cta-btn cta-btn--hero">Let's collaborate</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -350,8 +352,8 @@
 
     <section id="education" class="section section--education" aria-labelledby="education-title">
       <div class="container">
-        <div class="section-intro">
-          <p class="section-eyebrow">Learning Journey</p>
+        <div class="section-intro section-intro--center">         
+           <p class="section-eyebrow">Learning Journey</p>
           <h2 class="section-title" id="education-title">Education</h2>
           <p class="section-lede">
             Formal studies that ground my applied work in strong theoretical foundations and collaborative practice.
@@ -521,6 +523,9 @@
     <script type="module" src="./main.js"></script>
   </body>
 </html>
+
+
+
 
 
 
