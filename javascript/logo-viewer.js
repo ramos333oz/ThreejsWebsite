@@ -130,9 +130,12 @@ class LogoViewer {
     this.anchor.scale.setScalar(0.85)
 
     this.anchor.updateMatrixWorld(true)
-    const centerBox = new THREE.Box3().setFromObject(this.anchor)
+    const tmpGroup = new THREE.Group()
+    tmpGroup.add(this.anchor.clone(true))
+    tmpGroup.updateMatrixWorld(true)
+    const centerBox = new THREE.Box3().setFromObject(tmpGroup)
     const center = centerBox.getCenter(new THREE.Vector3())
-    this.anchor.position.sub(center)
+    this.anchor.position.set(-center.x, -center.y, -center.z)
     this.anchor.updateMatrixWorld(true)
 
     this.anchorBasePosition.copy(this.anchor.position)
