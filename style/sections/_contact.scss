@@ -35,18 +35,25 @@
   }
 
   .contact-stack__viewer {
-    width: min(40rem, 80vw);
+    width: min(26rem, 80vw);
     aspect-ratio: 1 / 1;
     border-radius: 1.8rem;
     border: none;
     background: transparent;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
+    outline: none;
+    transition: box-shadow 0.25s ease;
+  }
+
+  .contact-stack__viewer:focus-visible {
+    box-shadow: 0 0 0 3px rgba($white-color, 0.4);
   }
 
   .contact-stack__viewer canvas {
-    width: 110% !important;
-    height: 110% !important;
+    width: 100% !important;
+    height: 100% !important;
     display: block;
   }
 

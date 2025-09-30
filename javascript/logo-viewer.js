@@ -2,6 +2,7 @@ import * as THREE from "three"
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js"
 
 const loader = new GLTFLoader()
+const POINTER_OUTSIDE = new THREE.Vector2(999, 999)
 
 class LogoViewer {
   constructor(container, modelUrl) {
@@ -14,15 +15,47 @@ class LogoViewer {
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
     this.renderer.outputColorSpace = THREE.SRGBColorSpace
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-    this.container.appendChild(this.renderer.domElement)
+    this.domElement = this.renderer.domElement
+    this.container.appendChild(this.domElement)
 
     this.pivot = new THREE.Group()
     this.anchor = new THREE.Group()
     this.pivot.add(this.anchor)
     this.scene.add(this.pivot)
 
+    this.raycaster = new THREE.Raycaster()
+    this.pointer = POINTER_OUTSIDE.clone()
+    this.pointerHover = false
+    this.focused = false
+    this.isHovered = false
+
+    this.baseScaleValue = 1
+    this.baseScaleVec = new THREE.Vector3(1, 1, 1)
+    this.hoverScaleVec = new THREE.Vector3(1, 1, 1)
+    this.targetScaleVec = new THREE.Vector3(1, 1, 1)
+
+    this.motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
+    this.hoverScaleFactor = this.motionQuery.matches ? 1.03 : 1.12
+    this.handleMotionPreferenceChange = this.handleMotionPreferenceChange.bind(this)
+    if (this.motionQuery.addEventListener) {
+      this.motionQuery.addEventListener("change", this.handleMotionPreferenceChange)
+    } else {
+      this.motionQuery.addListener(this.handleMotionPreferenceChange)
+    }
+
+    this.linkHref = container.dataset.link || null
+    this.linkTarget = container.dataset.linkTarget || "_blank"
+
+    if (!container.hasAttribute("tabindex")) {
+      container.setAttribute("tabindex", "0")
+    }
+    if (!container.hasAttribute("role") && this.linkHref) {
+      container.setAttribute("role", "link")
+    }
+
     this.addLights()
-    this.resizeObserver = new ResizeObserver(([entry]) => {
+    this.resizeObserver = new ResizeObserver((entries) => {
+      const entry = entries[0]
       if (!entry) return
       const { width, height } = entry.contentRect
       this.handleResize(width, height)
@@ -34,8 +67,27 @@ class LogoViewer {
     this.animate = this.animate.bind(this)
     this.renderer.setAnimationLoop(this.animate)
 
+    this.registerEvents()
+
     this.handleResize(this.container.clientWidth, this.container.clientHeight)
     this.loadModel()
+  }
+
+  registerEvents() {
+    this.onPointerMove = this.handlePointerMove.bind(this)
+    this.onPointerLeave = this.handlePointerLeave.bind(this)
+    this.onClick = this.handleClick.bind(this)
+    this.onFocus = this.handleFocus.bind(this)
+    this.onBlur = this.handleBlur.bind(this)
+    this.onKeyDown = this.handleKeyDown.bind(this)
+
+    this.domElement.addEventListener("pointermove", this.onPointerMove)
+    this.domElement.addEventListener("pointerleave", this.onPointerLeave)
+    this.domElement.addEventListener("click", this.onClick)
+
+    this.container.addEventListener("focus", this.onFocus)
+    this.container.addEventListener("blur", this.onBlur)
+    this.container.addEventListener("keydown", this.onKeyDown)
   }
 
   addLights() {
@@ -87,18 +139,117 @@ class LogoViewer {
     this.anchor.position.sub(center)
     this.anchor.updateMatrixWorld(true)
 
+    this.refreshScaleVectors(scale)
+    this.updateHoverState()
+
     this.camera.position.set(0, 0, 4)
     this.camera.lookAt(new THREE.Vector3(0, 0, 0))
+  }
+
+  refreshScaleVectors(baseScale) {
+    if (typeof baseScale === "number") {
+      this.baseScaleValue = baseScale
+    }
+    this.baseScaleVec.setScalar(this.baseScaleValue)
+    this.hoverScaleVec.copy(this.baseScaleVec).multiplyScalar(this.hoverScaleFactor)
+    const active = this.isHovered ? this.hoverScaleVec : this.baseScaleVec
+    this.targetScaleVec.copy(active)
+    this.anchor.scale.copy(active)
+  }
+
+  handlePointerMove(event) {
+    if (!this.model) return
+    const rect = this.domElement.getBoundingClientRect()
+    const x = ((event.clientX - rect.left) / rect.width) * 2 - 1
+    const y = -((event.clientY - rect.top) / rect.height) * 2 + 1
+    this.pointer.set(x, y)
+    this.castPointer()
+  }
+
+  handlePointerLeave() {
+    this.pointer.copy(POINTER_OUTSIDE)
+    this.pointerHover = false
+    this.updateHoverState()
+  }
+
+  castPointer() {
+    this.raycaster.setFromCamera(this.pointer, this.camera)
+    const intersections = this.raycaster.intersectObject(this.anchor, true)
+    this.pointerHover = intersections.length > 0
+    this.updateHoverState()
+  }
+
+  handleFocus() {
+    this.focused = true
+    this.updateHoverState()
+  }
+
+  handleBlur() {
+    this.focused = false
+    this.updateHoverState()
+  }
+
+  handleClick(event) {
+    if (!this.linkHref || event.button !== 0) return
+    if (!this.isHovered) return
+    this.navigateToLink()
+  }
+
+  handleKeyDown(event) {
+    if (!this.linkHref) return
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault()
+      this.navigateToLink()
+    }
+  }
+
+  navigateToLink() {
+    if (!this.linkHref) return
+    if (this.linkTarget === "_blank") {
+      window.open(this.linkHref, "_blank", "noopener,noreferrer")
+    } else {
+      window.location.assign(this.linkHref)
+    }
+  }
+
+  updateHoverState() {
+    const shouldHover = this.focused || this.pointerHover
+    if (shouldHover === this.isHovered) return
+    this.isHovered = shouldHover
+    this.targetScaleVec.copy(this.isHovered ? this.hoverScaleVec : this.baseScaleVec)
+  }
+
+  handleMotionPreferenceChange() {
+    this.hoverScaleFactor = this.motionQuery.matches ? 1.03 : 1.12
+    this.refreshScaleVectors()
   }
 
   animate() {
     const delta = this.clock.getDelta()
     this.pivot.rotation.y += this.rotationSpeed * delta
+    const easing = this.motionQuery.matches ? 0.2 : 0.1
+    this.anchor.scale.lerp(this.targetScaleVec, easing)
     this.render()
   }
 
   render() {
     this.renderer.render(this.scene, this.camera)
+  }
+
+  dispose() {
+    this.renderer.setAnimationLoop(null)
+    this.resizeObserver.disconnect()
+    this.domElement.removeEventListener("pointermove", this.onPointerMove)
+    this.domElement.removeEventListener("pointerleave", this.onPointerLeave)
+    this.domElement.removeEventListener("click", this.onClick)
+    this.container.removeEventListener("focus", this.onFocus)
+    this.container.removeEventListener("blur", this.onBlur)
+    this.container.removeEventListener("keydown", this.onKeyDown)
+    if (this.motionQuery.removeEventListener) {
+      this.motionQuery.removeEventListener("change", this.handleMotionPreferenceChange)
+    } else {
+      this.motionQuery.removeListener(this.handleMotionPreferenceChange)
+    }
   }
 }
 
@@ -113,6 +264,3 @@ export function initLogoViewers() {
     container.__logoViewerInstance = new LogoViewer(container, modelUrl)
   }
 }
-
-
-
