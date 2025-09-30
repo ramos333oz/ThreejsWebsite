@@ -60,15 +60,13 @@
     />
   </head>
   <body>
-    <div id="hero">
-      <section class="container hero__content">
+    <section id="hero" class="section section--hero" aria-labelledby="hero-title">
+      <div class="container hero__content">
         <div class="hero__intro">
-          <p class="hero__eyebrow">Netcentric Computing Student &middot; Developer</p>
-          <h1 class="hero-title">Omar Moussa Bin Zakaria</h1>
-          <p class="hero__subtitle">
-            I design content-first, accessible experiences that pair rapid delivery
-            with thoughtful polish. My current focus is turning AI curiosity into
-            usable product features while keeping performance budgets in check.
+          <p class="hero__eyebrow section-eyebrow">Netcentric Computing Student &middot; Developer</p>
+          <h1 class="hero-title section-title" id="hero-title">Omar Moussa Bin Zakaria</h1>
+          <p class="hero__subtitle section-lede">
+            I design content-first, accessible experiences that pair rapid delivery with thoughtful polish. My current focus is turning AI curiosity into usable product features while keeping performance budgets in check.
           </p>
           <div class="hero-cta">
             <a class="cta-btn cta-btn--hero" href="#projects">View recent work</a>
@@ -81,57 +79,57 @@
             >
           </div>
         </div>
-        <ul class="hero__highlights">
+        <ul class="hero__highlights surface-card">
           <li>Delivers ahead of schedule with meticulous QA.</li>
           <li>Bridges data insights and engaging interfaces.</li>
           <li>Champions progressive enhancement for every interaction.</li>
         </ul>
-      </section>
+      </div>
       <a href="#about" class="scroll-down-link" aria-label="scroll-down">
         <div class="scroll-down"></div>
       </a>
-    </div>
+    </section>
 
-    <section id="about">
+    <section id="about" class="section section--about" aria-labelledby="about-title">
       <div class="container">
-        <h2 class="section-title">About</h2>
+        <div class="section-intro">
+          <p class="section-eyebrow">Profile</p>
+          <h2 class="section-title" id="about-title">About</h2>
+          <p class="section-lede">
+            I am a third-year Bachelor of Computer Science (Hons.) Netcentric Computing student at UiTM Shah Alam with a CGPA of 3.45, known for delivering polished, accessible work ahead of deadlines.
+          </p>
+        </div>
         <div class="row about-wrapper">
           <div class="about-wrapper__image">
-            <img
-              class="img-fluid"
-              src="./assets/profile.png"
-              alt="Portrait of Omar Moussa Bin Zakaria"
-              width="450"
-              height="350"
-            />
+            <div class="about-photo surface-card">
+              <img
+                class="img-fluid"
+                src="./assets/profile.png"
+                alt="Portrait of Omar Moussa Bin Zakaria"
+                width="450"
+                height="350"
+              />
+            </div>
           </div>
           <div class="about-wrapper__info">
-            <p class="about-wrapper__info-text">
-              I am a third-year Bachelor of Computer Science (Hons.) Netcentric
-              Computing student at UiTM Shah Alam with a CGPA of 3.45. I love
-              translating curiosity about emerging technology into tangible
-              solutions, and I am known for delivering polished, accessible work
-              ahead of deadlines.
-            </p>
-            <p class="about-wrapper__info-text">
-              Whether I am prototyping real-time sports experiences or building IoT
-              wearables for safety, I care about pairing resilient engineering with
-              empathetic design. Collaboration, knowledge sharing, and continuous
-              learning keep me energised.
-            </p>
+            <div class="about-wrapper__copy surface-card">
+              <p>
+                Whether I am prototyping real-time sports experiences or building IoT wearables for safety, I care about pairing resilient engineering with empathetic design. Collaboration, knowledge sharing, and continuous learning keep me energised.
+              </p>
+            </div>
             <div class="about-wrapper__info-grid">
-              <div class="about-pill">
+              <article class="about-pill surface-card">
                 <h3>What drives me</h3>
                 <p>Content-first experiences that remain fast and accessible.</p>
-              </div>
-              <div class="about-pill">
+              </article>
+              <article class="about-pill surface-card">
                 <h3>How I work</h3>
                 <p>Iterative delivery, transparent communication, and QA baked in.</p>
-              </div>
-              <div class="about-pill">
+              </article>
+              <article class="about-pill surface-card">
                 <h3>Currently exploring</h3>
                 <p>Progressive Three.js hero scenes that respect performance.</p>
-              </div>
+              </article>
             </div>
             <span class="about-wrapper__cta">
               <a href="#contact" class="cta-btn cta-btn--resume">Let's collaborate</a>
@@ -141,11 +139,17 @@
       </div>
     </section>
 
-    <section id="skills" class="section--light">
+    <section id="skills" class="section section--skills" aria-labelledby="skills-title">
       <div class="container">
-        <h2 class="section-title dark-blue-text">Core Skills</h2>
+        <div class="section-intro">
+          <p class="section-eyebrow">Capabilities</p>
+          <h2 class="section-title" id="skills-title">Core Skills</h2>
+          <p class="section-lede">
+            A balanced mix of interface craft, data fluency, and production discipline that keeps projects grounded and shippable.
+          </p>
+        </div>
         <div class="skills-grid">
-          <article class="skills-card">
+          <article class="skills-card surface-card">
             <h3>Web</h3>
             <ul class="skills-list">
               <li>Semantic HTML, modern CSS, responsive design</li>
@@ -153,7 +157,7 @@
               <li>Accessibility-first workflows</li>
             </ul>
           </article>
-          <article class="skills-card">
+          <article class="skills-card surface-card">
             <h3>Backend &amp; Data</h3>
             <ul class="skills-list">
               <li>Node.js, Supabase (PostgreSQL)</li>
@@ -161,7 +165,7 @@
               <li>pgvector similarity search</li>
             </ul>
           </article>
-          <article class="skills-card">
+          <article class="skills-card surface-card">
             <h3>ML &amp; Algorithms</h3>
             <ul class="skills-list">
               <li>K-Nearest Neighbours for ranking</li>
@@ -169,7 +173,7 @@
               <li>Data storytelling and visualisation</li>
             </ul>
           </article>
-          <article class="skills-card">
+          <article class="skills-card surface-card">
             <h3>IoT &amp; Hardware</h3>
             <ul class="skills-list">
               <li>Arduino and ESP32 prototyping</li>
@@ -177,7 +181,7 @@
               <li>Blynk dashboards and remote alerts</li>
             </ul>
           </article>
-          <article class="skills-card">
+          <article class="skills-card surface-card">
             <h3>Tools &amp; Practices</h3>
             <ul class="skills-list">
               <li>Git and GitHub collaboration</li>
@@ -189,21 +193,23 @@
       </div>
     </section>
 
-    <section id="projects">
+    <section id="projects" class="section section--projects" aria-labelledby="projects-title">
       <div class="container">
+        <div class="section-intro">
+          <p class="section-eyebrow">Selected Work</p>
+          <h2 class="section-title" id="projects-title">Featured Projects</h2>
+          <p class="section-lede">
+            Detailed builds that show how I pair product thinking with resilient engineering and inclusive interactions.
+          </p>
+        </div>
         <div class="project-wrapper">
-          <h2 class="section-title dark-blue-text">Featured Projects</h2>
-
-          <article class="row project-card">
+          <article class="row project-card surface-card">
             <div class="project-wrapper__text">
               <h3 class="project-wrapper__text-title">
                 Real-Time Sports Team-Up Platform
               </h3>
               <p class="project-wrapper__text-info">
-                A crowdsourcing web app for creating and joining pick-up games in
-                real time. Hosts publish match openings while an algorithm ranks
-                players using vector embeddings and KNN similarity to deliver
-                balanced teams.
+                A crowdsourcing web app for creating and joining pick-up games in real time. Hosts publish match openings while an algorithm ranks players using vector embeddings and KNN similarity to deliver balanced teams.
               </p>
               <ul class="project-wrapper__meta">
                 <li><strong>Role:</strong> Full-stack implementer and algorithm designer</li>
@@ -233,7 +239,7 @@
             </div>
 
             <div class="project-wrapper__image">
-              <div class="thumbnail rounded">
+              <div class="thumbnail rounded surface-card">
                 <img
                   src="./assets/project.png"
                   class="img-fluid"
@@ -245,15 +251,13 @@
             </div>
           </article>
 
-          <article class="row project-card">
+          <article class="row project-card surface-card">
             <div class="project-wrapper__text">
               <h3 class="project-wrapper__text-title">
                 Permit ML Scraper and Map Visualisation
               </h3>
               <p class="project-wrapper__text-info">
-                Automated pipeline scraping 35-plus Southern California city permit
-                portals, normalising records, and displaying eligibility through an
-                interactive map with drive-time overlays for field teams.
+                Automated pipeline scraping 35-plus Southern California city permit portals, normalising records, and displaying eligibility through an interactive map with drive-time overlays for field teams.
               </p>
               <ul class="project-wrapper__meta">
                 <li><strong>Role:</strong> Web scraper developer and data viz integrator</li>
@@ -283,7 +287,7 @@
             </div>
 
             <div class="project-wrapper__image">
-              <div class="thumbnail rounded">
+              <div class="thumbnail rounded surface-card">
                 <img
                   src="./assets/project.png"
                   class="img-fluid"
@@ -295,13 +299,11 @@
             </div>
           </article>
 
-          <article class="row project-card">
+          <article class="row project-card surface-card">
             <div class="project-wrapper__text">
               <h3 class="project-wrapper__text-title">Child Safety Wearable IoT</h3>
               <p class="project-wrapper__text-info">
-                Wearable device that tracks a child's location, environmental data,
-                and SOS alerts. Parents receive real-time notifications via GSM while
-                monitoring a Blynk dashboard.
+                Wearable device that tracks a child's location, environmental data, and SOS alerts. Parents receive real-time notifications via GSM while monitoring a Blynk dashboard.
               </p>
               <ul class="project-wrapper__meta">
                 <li><strong>Role:</strong> IoT system designer and firmware developer</li>
@@ -310,7 +312,7 @@
               <ul class="project-wrapper__tags">
                 <li>IoT safety</li>
                 <li>Hardware prototyping</li>
-                <li>Real-time dashboards</li>
+                <li>Remote monitoring</li>
               </ul>
               <div class="project-wrapper__text-btns">
                 <a
@@ -318,68 +320,20 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   class="cta-btn cta-btn--hero cta-btn--projects"
-                  >Demo recap</a
+                  >Field demo recap</a
                 >
                 <a
                   href="https://github.com/yourusername/child-safety-wearable"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="cta-btn text-color-main"
-                  >Hardware notes</a
+                  >System notes</a
                 >
               </div>
             </div>
 
             <div class="project-wrapper__image">
-              <div class="thumbnail rounded">
-                <img
-                  src="./assets/project.png"
-                  class="img-fluid"
-                  alt="Wearable device prototype with sensors"
-                  width="1366"
-                  height="767"
-                />
-              </div>
-            </div>
-          </article>
-
-          <article class="row project-card">
-            <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">DVWA Security Analysis</h3>
-              <p class="project-wrapper__text-info">
-                Security assessment exercises using DVWA on Kali Linux, covering
-                vulnerabilities, exploitation paths, and mitigation strategies to
-                strengthen web application posture.
-              </p>
-              <ul class="project-wrapper__meta">
-                <li><strong>Role:</strong> Security analyst and documentation owner</li>
-                <li><strong>Stack:</strong> DVWA, Kali Linux toolkit, OWASP practices</li>
-              </ul>
-              <ul class="project-wrapper__tags">
-                <li>Security</li>
-                <li>Vulnerability testing</li>
-                <li>Process documentation</li>
-              </ul>
-              <div class="project-wrapper__text-btns">
-                <a
-                  href="#projects"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="cta-btn cta-btn--hero cta-btn--projects"
-                  >Case study PDF</a
-                >
-                <a
-                  href="https://github.com/yourusername/dvwa-security"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="cta-btn text-color-main"
-                  >Security notes</a
-                >
-              </div>
-            </div>
-
-            <div class="project-wrapper__image">
-              <div class="thumbnail rounded">
+              <div class="thumbnail rounded surface-card">
                 <img
                   src="./assets/project.png"
                   class="img-fluid"
@@ -394,11 +348,17 @@
       </div>
     </section>
 
-    <section id="education" class="section--light">
+    <section id="education" class="section section--education" aria-labelledby="education-title">
       <div class="container">
-        <h2 class="section-title dark-blue-text">Education</h2>
+        <div class="section-intro">
+          <p class="section-eyebrow">Learning Journey</p>
+          <h2 class="section-title" id="education-title">Education</h2>
+          <p class="section-lede">
+            Formal studies that ground my applied work in strong theoretical foundations and collaborative practice.
+          </p>
+        </div>
         <div class="timeline">
-          <article class="timeline__item">
+          <article class="timeline__item surface-card">
             <h3 class="timeline__heading">
               Universiti Teknologi MARA (UiTM), Shah Alam
             </h3>
@@ -409,7 +369,7 @@
             </ul>
           </article>
 
-          <article class="timeline__item">
+          <article class="timeline__item surface-card">
             <h3 class="timeline__heading">Selangor Matriculation College</h3>
             <p class="timeline__meta">Matriculation Foundations &mdash; 2021 to 2022</p>
             <ul>
@@ -418,7 +378,7 @@
             </ul>
           </article>
 
-          <article class="timeline__item">
+          <article class="timeline__item surface-card">
             <h3 class="timeline__heading">Sijil Pelajaran Malaysia (SPM)</h3>
             <p class="timeline__meta">Science stream &mdash; 2019 to 2020</p>
             <ul>
@@ -428,11 +388,13 @@
         </div>
       </div>
     </section>
-    <section id="certificates">
+
+    <section id="certificates" class="section section--certificates" aria-labelledby="certificates-title">
       <div class="container">
-        <div class="certificate-header">
-          <h2 class="section-title dark-blue-text">Certificates & Recognition</h2>
-          <p class="certificate-lede">
+        <div class="section-intro section-intro--center">
+          <p class="section-eyebrow">Recognition</p>
+          <h2 class="section-title" id="certificates-title">Certificates &amp; Recognition</h2>
+          <p class="section-lede">
             Each credential reinforces curiosity for emerging tech and a habit of turning learning into delivery.
           </p>
         </div>
@@ -518,11 +480,17 @@
       </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="section section--contact" aria-labelledby="contact-title">
       <div class="container">
-        <h2 class="section-title">Let's Build Together</h2>
+        <div class="section-intro section-intro--center">
+          <p class="section-eyebrow">Let's Connect</p>
+          <h2 class="section-title" id="contact-title">Let's Build Together</h2>
+          <p class="section-lede">
+            I am excited about software roles that blend product thinking, real-time data, and immersive web experiences.
+          </p>
+        </div>
         <div class="contact-stack" role="list">
-          <article class="contact-stack__card" role="listitem">
+          <article class="contact-stack__card surface-card" role="listitem">
             <div
               class="contact-stack__viewer"
               data-logo-viewer
@@ -532,9 +500,10 @@
               tabindex="0"
               aria-label="LinkedIn logo 3D model"
             ></div>
-
+            <h3 class="contact-stack__title">LinkedIn</h3>
+            <p class="contact-stack__subtitle">Stay in touch professionally</p>
           </article>
-          <article class="contact-stack__card" role="listitem">
+          <article class="contact-stack__card surface-card" role="listitem">
             <div
               class="contact-stack__viewer"
               data-logo-viewer
@@ -544,16 +513,16 @@
               tabindex="0"
               aria-label="GitHub logo 3D model"
             ></div>
+            <h3 class="contact-stack__title">GitHub</h3>
+            <p class="contact-stack__subtitle">Peek at current experiments</p>
           </article>
         </div>
-        <div class="contact-wrapper">
+        <div class="contact-wrapper surface-card">
           <p class="contact-wrapper__text">
-            I am excited about software roles that blend product thinking, real-time
-            data, and immersive web experiences. If you are looking for someone who
-            delivers fast without sacrificing craft, let's connect.
+            If you are looking for someone who delivers fast without sacrificing craft, let's connect.
           </p>
           <div class="contact-wrapper__channels">
-            <a class="cta-btn cta-btn--resume" href="mailto:hello@omar.dev">Email me</a>
+            <a class="cta-btn cta-btn--hero" href="mailto:hello@omar.dev">Email me</a>
             <a
               class="contact-link"
               href="https://www.linkedin.com/in/your-profile"
@@ -576,3 +545,5 @@
     <script type="module" src="./main.js"></script>
   </body>
 </html>
+
+

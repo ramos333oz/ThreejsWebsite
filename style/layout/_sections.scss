@@ -1,7 +1,10 @@
-﻿section {
-  padding: 8rem 0;
+.section {
+  padding: 9rem 0;
   position: relative;
-  color: $dark-blue-text;
+
+  @include respond(tab-port) {
+    padding: 6rem 0;
+  }
 
   @include respond(phone) {
     padding: 5rem 0;
@@ -12,40 +15,73 @@
     gap: 3.2rem;
     grid-template-columns: 1.1fr 1fr;
     align-items: start;
+    padding: 0;
+
     @include respond(tab-port) {
       grid-template-columns: 1fr;
-    }
-    padding: 0 1.5rem;
-    @include respond(phone) {
-      padding: 0;
-    }
-    & p + p {
-      margin-top: 1.6rem;
-    }
-    & span {
-      margin-top: 2.4rem;
     }
   }
 }
 
-.section--light {
-  background: rgba($light-white, 0.96);
+.section-intro {
+  max-width: 720px;
+  margin: 0 auto 4rem;
+  display: grid;
+  gap: 1.8rem;
+  text-align: left;
+}
+
+.section-intro--center {
+  text-align: center;
+}
+
+.surface-card {
+  background: $surface-card;
+  border: 1px solid $surface-border;
+  border-radius: 2.4rem;
+  box-shadow: $shadow-soft;
   backdrop-filter: blur(12px);
+  padding: clamp(2.4rem, 1.5vw + 1.6rem, 3.2rem);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.45s ease;
+
+  &:hover,
+  &:focus-within {
+    transform: translateY(-10px);
+    box-shadow: $shadow-strong;
+    border-color: rgba($secondary-color, 0.35);
+  }
+
+  &:focus-within {
+    outline: 3px solid rgba($accent-color, 0.45);
+    outline-offset: 6px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .surface-card,
+  .surface-card:hover,
+  .surface-card:focus-within {
+    transition: none;
+    transform: none;
+    box-shadow: $shadow-soft;
+  }
 }
 
 .container {
   width: 100%;
-  padding: 0 2.4rem;
+  padding: 0 clamp(1.8rem, 4vw, 3.2rem);
   margin: 0 auto;
-  max-width: 1140px;
+  max-width: 1040px;
+
   @include respond(tab-land) {
     max-width: 960px;
   }
+
   @include respond(tab-port) {
     max-width: 720px;
   }
+
   @include respond(phone) {
     max-width: 540px;
-    padding: 0 1.6rem;
   }
 }

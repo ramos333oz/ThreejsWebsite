@@ -1,11 +1,11 @@
-﻿@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap");
 
 h1,
 h2,
 h3,
 h4 {
-  font-family: "Space Grotesk", "Montserrat", sans-serif;
-  color: $dark-blue-text;
+  font-family: $font-family;
+  color: $ink-strong;
 }
 
 h1 {
@@ -15,34 +15,47 @@ h1 {
 p,
 a,
 li {
-  font-family: "Inter", "Montserrat", sans-serif;
+  font-family: $body-font-family;
   font-size: $default-font-size;
-  color: $muted-text;
+  color: $ink-body;
   line-height: 1.75;
 }
 
 a {
   text-decoration: none;
-}
+  color: $secondary-color;
+  transition: color 0.3s ease-in-out;
 
-a:hover {
-  transition: all 0.3s ease-in-out;
+  &:hover {
+    color: $accent-secondary;
+  }
 }
 
 .section-title {
-  margin-bottom: 3.2rem;
+  margin-bottom: 0;
   font-size: $big-font-size;
   text-transform: none;
   letter-spacing: -0.04em;
   line-height: 1.1;
-  text-align: left;
+  text-align: inherit;
+
   @include respond(phone) {
     font-size: 3.2rem;
   }
 }
 
-.dark-blue-color {
-  color: $dark-blue-text;
+.section-eyebrow {
+  font-family: $body-font-family;
+  font-size: 1.3rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba($ink-strong, 0.6);
+}
+
+.section-lede {
+  font-size: 1.7rem;
+  line-height: 1.7;
+  color: $ink-subtle;
 }
 
 .text-color-main {

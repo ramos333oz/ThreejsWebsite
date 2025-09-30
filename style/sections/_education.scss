@@ -13,11 +13,11 @@
 
   .timeline__item {
     position: relative;
-    padding: 3.2rem 3rem;
-    border-radius: 1.6rem;
-    background: rgba($white-color, 0.98);
-    border: 1px solid rgba($secondary-color, 0.12);
-    box-shadow: 0 28px 70px rgba(15, 23, 42, 0.12);
+    padding: clamp(2.6rem, 1.4vw + 2rem, 3.4rem);
+    border-radius: 2.4rem;
+    background: $surface-card;
+    border: 1px solid $surface-border;
+    box-shadow: $shadow-soft;
     overflow: hidden;
 
     &::before {
@@ -27,7 +27,7 @@
       border-radius: inherit;
       border-left: 6px solid transparent;
       background: linear-gradient(160deg, rgba($secondary-color, 0.35), rgba($accent-color, 0.2));
-      opacity: 0.18;
+      opacity: 0.25;
       pointer-events: none;
     }
 
@@ -49,13 +49,13 @@
 
     &:hover {
       transform: translateY(-6px);
-      box-shadow: 0 34px 80px rgba(30, 64, 216, 0.16);
+      box-shadow: $shadow-strong;
       transition: transform 0.35s ease, box-shadow 0.35s ease;
     }
 
     h3 {
       font-size: 2.1rem;
-      color: $dark-blue-text;
+      color: $ink-strong;
       margin-bottom: 0.8rem;
     }
 
@@ -76,7 +76,7 @@
     ul {
       margin: 0;
       padding-left: 1.6rem;
-      color: $muted-text;
+      color: $ink-subtle;
 
       li {
         margin-bottom: 0.8rem;

@@ -11,3 +11,5 @@ node_modules/
 dist/
 .vite/
 .sass-cache/
+# Moat task system
+.moat/

@@ -1,4 +1,4 @@
-﻿.cta-btn {
+.cta-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -10,7 +10,7 @@
   z-index: 1;
   overflow: hidden;
   border-radius: 999px;
-  transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease, color 0.35s ease;
   cursor: pointer;
   font-size: 1.5rem;
   color: $white-color;
@@ -32,34 +32,34 @@
 
 .cta-btn--outline {
   background: transparent;
-  color: $white-color;
-  border: 1px solid rgba($white-color, 0.5);
+  color: $secondary-color;
+  border: 1px solid rgba($secondary-color, 0.35);
   box-shadow: none;
 
   &:hover {
-    background: rgba($white-color, 0.12);
+    background: rgba($secondary-color, 0.12);
   }
 }
 
 .cta-btn--resume {
-  background: $white-color;
+  background: linear-gradient(135deg, rgba($white-color, 0.85) 0%, rgba($white-color, 0.65) 100%);
   color: $secondary-color;
   border: none;
-  box-shadow: 0 18px 36px rgba($white-color, 0.2);
+  box-shadow: 0 18px 42px rgba($secondary-color, 0.18);
 
   &:hover {
-    box-shadow: 0 28px 46px rgba($white-color, 0.28);
+    box-shadow: 0 26px 56px rgba($secondary-color, 0.28);
   }
 }
 
 .cta-btn--projects {
-  background: rgba($secondary-color, 0.1);
+  background: rgba($secondary-color, 0.12);
   color: $secondary-color;
   border: none;
   box-shadow: none;
 
   &:hover {
     background: rgba($secondary-color, 0.18);
-    color: $dark-blue-text;
+    color: $ink-strong;
   }
 }

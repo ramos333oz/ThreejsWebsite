@@ -1,16 +1,30 @@
-﻿* {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: $font-family;
 }
+
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
 }
+
 body {
-  background: linear-gradient(160deg, $primary-color 0%, #060b1a 60%, #020510 100%);
-  color: $white-color;
-  line-height: 1.6;
+  background: $body-bg-gradient;
+  color: $ink-body;
+  line-height: 1.68;
   text-align: left;
+  text-rendering: optimizeLegibility;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -25% -15% -20% -15%;
+  pointer-events: none;
+  background: $body-radial-blue, $body-radial-purple;
+  z-index: -1;
+  opacity: 1;
 }

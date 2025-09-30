@@ -1,31 +1,12 @@
-﻿#about {
-  background: linear-gradient(135deg, rgba($secondary-color, 0.15) 0%, rgba($accent-secondary, 0.12) 100%);
-  color: $white-color;
-  padding-bottom: 10rem;
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba($primary-color, 0.7);
-    mix-blend-mode: screen;
-    pointer-events: none;
-  }
-
-  @include respond(tab-land) {
-    padding-bottom: 6rem;
-  }
-
-  .section-title {
-    color: $white-color;
-  }
+#about {
+  background: transparent;
+  color: $ink-body;
 
   .about-wrapper {
     position: relative;
     z-index: 1;
     grid-template-columns: 0.9fr 1.1fr;
+    gap: 3.2rem;
 
     @include respond(phone) {
       grid-template-columns: 1fr;
@@ -36,11 +17,15 @@
       align-items: center;
       justify-content: center;
 
-      img {
-        max-width: 320px;
-        width: 100%;
-        border-radius: 1.6rem;
-        box-shadow: 0 24px 60px rgba(14, 22, 53, 0.4);
+      .about-photo {
+        padding: 0;
+
+        img {
+          max-width: 320px;
+          width: 100%;
+          border-radius: inherit;
+          display: block;
+        }
       }
 
       @include respond(tab-port-sm) {
@@ -49,13 +34,16 @@
     }
 
     &__info {
-      display: flex;
-      flex-direction: column;
+      display: grid;
       gap: 2.4rem;
       text-align: left;
+    }
+
+    &__copy {
+      padding: clamp(2.4rem, 1.3vw + 1.8rem, 3.2rem);
 
       p {
-        color: rgba($white-color, 0.85);
+        color: $ink-body;
       }
     }
 
@@ -76,21 +64,18 @@
 }
 
 .about-pill {
-  background: rgba($white-color, 0.08);
-  border: 1px solid rgba($white-color, 0.16);
-  padding: 2.4rem;
-  border-radius: 1.6rem;
-  backdrop-filter: blur(10px);
+  padding: clamp(2rem, 1.2vw + 1.4rem, 2.6rem);
+  display: grid;
+  gap: 1rem;
 
   h3 {
     font-size: 1.6rem;
-    margin-bottom: 1rem;
-    color: $white-color;
+    color: $ink-strong;
     letter-spacing: 0.02em;
   }
 
   p {
-    color: rgba($white-color, 0.75);
+    color: $ink-subtle;
     font-size: 1.5rem;
   }
 }

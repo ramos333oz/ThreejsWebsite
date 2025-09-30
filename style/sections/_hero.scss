@@ -1,17 +1,14 @@
-﻿#hero {
+#hero {
   position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 12rem 0;
-  background: radial-gradient(circle at top right, rgba($secondary-color, 0.35), transparent 55%),
-    radial-gradient(circle at bottom left, rgba($accent-secondary, 0.25), transparent 60%),
-    linear-gradient(135deg, $primary-color 0%, #030712 85%);
   overflow: hidden;
-  color: $white-color;
+  color: $ink-body;
+  background: transparent;
 
   @include respond(tab-port) {
-    padding: 10rem 0 8rem 0;
+    min-height: auto;
   }
 
   .hero__content {
@@ -28,29 +25,20 @@
 
   .hero__intro {
     max-width: 620px;
-  }
-
-  .hero__eyebrow {
-    font-family: "Inter", sans-serif;
-    font-size: 1.4rem;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: rgba($white-color, 0.6);
-    margin-bottom: 2rem;
+    display: grid;
+    gap: 2.4rem;
   }
 
   .hero-title {
     font-size: clamp(4.4rem, 6vw, 6.2rem);
-    margin-bottom: 2.4rem;
-    color: $white-color;
     letter-spacing: -0.04em;
     line-height: 1.05;
+    color: $ink-strong;
   }
 
   .hero__subtitle {
     font-size: 1.8rem;
-    color: rgba($white-color, 0.78);
-    margin-bottom: 3.2rem;
+    color: $ink-subtle;
   }
 
   .hero-cta {
@@ -69,16 +57,14 @@
 
   .hero__highlights {
     list-style: none;
-    padding: 2.4rem 2.4rem 2.4rem 3.2rem;
     margin: 0;
-    background: rgba($white-color, 0.06);
-    border: 1px solid rgba($white-color, 0.12);
-    border-radius: 1.6rem;
-    backdrop-filter: blur(12px);
+    padding-left: 0;
     align-self: flex-start;
+    display: grid;
+    gap: 1.6rem;
 
     li {
-      color: rgba($white-color, 0.82);
+      color: $ink-body;
       font-size: 1.6rem;
       line-height: 1.6;
       position: relative;
@@ -95,10 +81,6 @@
         background: linear-gradient(135deg, $accent-color, $secondary-color);
       }
     }
-
-    li + li {
-      margin-top: 1.6rem;
-    }
   }
 }
 
@@ -112,7 +94,7 @@
 .scroll-down {
   height: 48px;
   width: 28px;
-  border: 2px solid rgba($white-color, 0.5);
+  border: 2px solid rgba($secondary-color, 0.28);
   border-radius: 24px;
   position: relative;
   cursor: pointer;
@@ -131,6 +113,7 @@
     border-left: none;
     animation: scroll-down 1s ease-in-out infinite;
   }
+
   &::after {
     top: 35%;
     animation-delay: 0.3s;

@@ -1,16 +1,30 @@
-﻿// COLORS
+// COLORS
+$font-family: "Space Grotesk", "Montserrat", sans-serif;
+$body-font-family: "Inter", "Montserrat", sans-serif;
+
 $primary-color: #0f172a;
 $secondary-color: #1d4ed8;
 $accent-color: #22d3ee;
-$accent-secondary: #9333ea;
-$font-family: "Space Grotesk", "Montserrat", sans-serif;
+$accent-secondary: #7c3aed;
+
+$ink-strong: #0b1220;
+$ink-body: #475569;
+$ink-subtle: #64748b;
 
 $light-white: #f5f7fb;
 $white-color: #ffffff;
-$dark-grey: #0b1220;
-$muted-text: #64748b;
+$dark-grey: $ink-strong;
+$muted-text: $ink-subtle;
+$dark-blue-text: $ink-strong;
 
-$dark-blue-text: #0b1220; // For headings
+$body-bg-gradient: linear-gradient(140deg, #f5f7fb 0%, #ecfcff 52%, #f1f5ff 100%);
+$body-radial-blue: radial-gradient(circle at 18% 16%, rgba(37, 99, 235, 0.28) 0%, rgba(37, 99, 235, 0) 62%);
+$body-radial-purple: radial-gradient(circle at 84% 88%, rgba(124, 58, 237, 0.26) 0%, rgba(124, 58, 237, 0) 60%);
+
+$surface-card: rgba(255, 255, 255, 0.9);
+$surface-border: rgba(100, 116, 139, 0.22);
+$shadow-soft: 0 24px 60px rgba(15, 23, 42, 0.12);
+$shadow-strong: 0 32px 72px rgba(15, 23, 42, 0.2);
 
 // FONT SIZE
 $default-font-size: 1.6rem;
