@@ -125,6 +125,10 @@ class LogoViewer {
   }
 
   frameModel() {
+    this.anchor.position.set(0, 0, 0)
+    this.anchor.rotation.set(0, 0, 0)
+    this.anchor.scale.setScalar(0.85)
+
     this.anchor.updateMatrixWorld(true)
     const centerBox = new THREE.Box3().setFromObject(this.anchor)
     const center = centerBox.getCenter(new THREE.Vector3())
