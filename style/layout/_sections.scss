@@ -28,11 +28,15 @@
   margin: 0 auto 4rem;
   display: grid;
   gap: 1.8rem;
-  text-align: left;
+  text-align: center;
 }
 
 .section-intro--center {
   text-align: center;
+}
+
+.section-intro--start {
+  text-align: left;
 }
 
 .surface-card {
@@ -85,3 +89,4 @@
     max-width: 540px;
   }
 }
+

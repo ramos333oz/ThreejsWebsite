@@ -1,6 +1,6 @@
 #contact {
   background: transparent;
-  padding: 10rem 0;
+  padding: 9rem 0;
   color: $ink-body;
   position: relative;
 
@@ -19,77 +19,49 @@
 
   .contact-stack__card {
     display: grid;
-    gap: 1.6rem;
-    align-items: center;
+    gap: 1.2rem;
+    place-items: center;
     text-align: center;
-    width: min(28rem, 100%);
+    color: $ink-strong;
   }
 
   .contact-stack__viewer {
-    width: 100%;
+    width: min(38rem, 90vw);
     aspect-ratio: 1 / 1;
     border-radius: 1.8rem;
-    border: 1px solid rgba($secondary-color, 0.2);
     background: transparent;
     position: relative;
-    overflow: hidden;
+    display: grid;
+    place-items: center;
+    overflow: visible;
+  }
+
+  .contact-stack__viewer::before {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border-radius: inherit;
+    background: radial-gradient(circle at 50% 50%, rgba($accent-secondary, 0.28) 0%, rgba($accent-secondary, 0) 70%);
+    opacity: 0.35;
+    pointer-events: none;
+    filter: blur(6px);
   }
 
   .contact-stack__viewer canvas {
     width: 100% !important;
     height: 100% !important;
     display: block;
+    background: transparent !important;
+    border-radius: inherit;
   }
 
   .contact-stack__title {
     font-weight: 600;
-    text-transform: none;
-    color: $ink-strong;
     font-size: 1.7rem;
-  }
-
-  .contact-stack__subtitle {
-    color: $ink-subtle;
     text-transform: none;
-    font-size: 1.4rem;
-  }
-
-  .contact-wrapper {
-    margin-top: 0;
-    padding: clamp(2.8rem, 1.5vw + 2rem, 3.4rem);
-    max-width: 720px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    display: grid;
-    gap: 2.4rem;
-
-    &__text {
-      color: $ink-body;
-      font-size: 1.6rem;
-    }
-
-    &__channels {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.6rem;
-
-      .contact-link {
-        font-size: 1.5rem;
-        font-weight: 600;
-        color: $secondary-color;
-        padding: 0.8rem 2.2rem;
-        border-radius: 999px;
-        border: 1px solid rgba($secondary-color, 0.25);
-        transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
-
-        &:hover {
-          transform: translateY(-4px);
-          background: rgba($accent-color, 0.14);
-          color: $accent-secondary;
-        }
-      }
-    }
   }
 }
+
+
+
+

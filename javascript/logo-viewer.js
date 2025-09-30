@@ -15,6 +15,7 @@ class LogoViewer {
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
     this.renderer.outputColorSpace = THREE.SRGBColorSpace
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    this.renderer.setClearColor(0x000000, 0)
     this.domElement = this.renderer.domElement
     this.container.appendChild(this.domElement)
 
@@ -259,3 +260,4 @@ export function initLogoViewers() {
     container.__logoViewerInstance = new LogoViewer(container, modelUrl)
   }
 }
+

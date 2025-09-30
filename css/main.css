@@ -260,11 +260,15 @@ a:hover {
   margin: 0 auto 4rem;
   display: grid;
   gap: 1.8rem;
-  text-align: left;
+  text-align: center;
 }
 
 .section-intro--center {
   text-align: center;
+}
+
+.section-intro--start {
+  text-align: left;
 }
 
 .surface-card {
@@ -374,27 +378,52 @@ a:hover {
 #hero .hero__highlights {
   list-style: none;
   margin: 0;
-  padding-left: 0;
+  padding: clamp(2.4rem, 1.2vw + 2rem, 3.4rem);
+  border-radius: 2.4rem;
+  border: 1px solid rgba(29, 78, 216, 0.24);
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.06) 100%);
+  backdrop-filter: blur(18px);
   align-self: flex-start;
   display: grid;
-  gap: 1.6rem;
+  gap: 1.4rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+}
+#hero .hero__highlights::before {
+  content: "";
+  position: absolute;
+  inset: -160px -40px 40px auto;
+  width: 240px;
+  background: radial-gradient(circle at top, rgba(124, 58, 237, 0.28), rgba(124, 58, 237, 0));
+  opacity: 0.5;
+  pointer-events: none;
 }
 #hero .hero__highlights li {
-  color: #475569;
-  font-size: 1.6rem;
-  line-height: 1.6;
+  color: #0b1220;
+  font-size: 1.55rem;
+  line-height: 1.55;
   position: relative;
-  padding-left: 1.6rem;
+  padding: 1.4rem 1.6rem 1.4rem 3.8rem;
+  border-radius: 1.6rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(29, 78, 216, 0.18);
+  box-shadow: 0 18px 38px rgba(15, 23, 42, 0.12);
 }
 #hero .hero__highlights li::before {
   content: "";
   position: absolute;
-  left: 0;
-  top: 0.8rem;
-  width: 0.6rem;
-  height: 0.6rem;
+  left: 1.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.1rem;
+  height: 1.1rem;
   border-radius: 50%;
-  background: linear-gradient(135deg, #22d3ee, #1d4ed8);
+  background: linear-gradient(135deg, #22d3ee 0%, #7c3aed 100%);
+  box-shadow: 0 0 0 6px rgba(34, 211, 238, 0.22);
+}
+#hero .hero__highlights li + li {
+  margin-top: 0;
 }
 
 .scroll-down-link {
@@ -773,7 +802,7 @@ a:hover {
 #certificates {
   position: relative;
   padding: 9rem 0;
-  background: linear-gradient(140deg, rgba(245, 247, 251, 0.98) 0%, rgba(236, 252, 255, 0.94) 52%, rgba(241, 245, 255, 0.98) 100%);
+  background: transparent;
   overflow: hidden;
 }
 #certificates::before, #certificates::after {
@@ -783,19 +812,19 @@ a:hover {
   height: 420px;
   border-radius: 50%;
   filter: blur(90px);
-  opacity: 0.55;
+  opacity: 0.32;
   pointer-events: none;
   z-index: 0;
 }
 #certificates::before {
-  top: -150px;
-  left: -140px;
-  background: rgba(29, 78, 216, 0.28);
+  top: -160px;
+  left: -220px;
+  background: radial-gradient(circle at 30% 30%, rgba(29, 78, 216, 0.32) 0%, rgba(29, 78, 216, 0) 70%);
 }
 #certificates::after {
-  right: -120px;
-  bottom: -180px;
-  background: rgba(124, 58, 237, 0.26);
+  right: -260px;
+  bottom: -220px;
+  background: radial-gradient(circle at 70% 70%, rgba(124, 58, 237, 0.3) 0%, rgba(124, 58, 237, 0) 72%);
 }
 #certificates .container {
   position: relative;
@@ -837,18 +866,6 @@ a:hover {
   --card-glow-strong: rgba(37, 99, 235, 0.42);
   --tag-bg: rgba($dark-grey, 0.06);
   --tag-text: $dark-grey;
-}
-#certificates .certificate-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, transparent 0%, var(--card-accent) 45%, transparent 100%);
-  opacity: 0.65;
-  transition: opacity 0.6s ease;
-  pointer-events: none;
 }
 #certificates .certificate-card__halo {
   position: absolute;
@@ -1019,7 +1036,7 @@ a:hover {
 
 #contact {
   background: transparent;
-  padding: 10rem 0;
+  padding: 9rem 0;
   color: #475569;
   position: relative;
 }
@@ -1036,67 +1053,40 @@ a:hover {
 }
 #contact .contact-stack__card {
   display: grid;
-  gap: 1.6rem;
-  align-items: center;
+  gap: 1.2rem;
+  place-items: center;
   text-align: center;
-  width: min(28rem, 100%);
+  color: #0b1220;
 }
 #contact .contact-stack__viewer {
-  width: 100%;
+  width: min(38rem, 90vw);
   aspect-ratio: 1/1;
   border-radius: 1.8rem;
-  border: 1px solid rgba(29, 78, 216, 0.2);
   background: transparent;
   position: relative;
-  overflow: hidden;
+  display: grid;
+  place-items: center;
+  overflow: visible;
+}
+#contact .contact-stack__viewer::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: inherit;
+  background: radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.28) 0%, rgba(124, 58, 237, 0) 70%);
+  opacity: 0.35;
+  pointer-events: none;
+  filter: blur(6px);
 }
 #contact .contact-stack__viewer canvas {
   width: 100% !important;
   height: 100% !important;
   display: block;
+  background: transparent !important;
+  border-radius: inherit;
 }
 #contact .contact-stack__title {
   font-weight: 600;
-  text-transform: none;
-  color: #0b1220;
   font-size: 1.7rem;
-}
-#contact .contact-stack__subtitle {
-  color: #64748b;
   text-transform: none;
-  font-size: 1.4rem;
-}
-#contact .contact-wrapper {
-  margin-top: 0;
-  padding: clamp(2.8rem, 1.5vw + 2rem, 3.4rem);
-  max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  display: grid;
-  gap: 2.4rem;
-}
-#contact .contact-wrapper__text {
-  color: #475569;
-  font-size: 1.6rem;
-}
-#contact .contact-wrapper__channels {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.6rem;
-}
-#contact .contact-wrapper__channels .contact-link {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #1d4ed8;
-  padding: 0.8rem 2.2rem;
-  border-radius: 999px;
-  border: 1px solid rgba(29, 78, 216, 0.25);
-  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
-}
-#contact .contact-wrapper__channels .contact-link:hover {
-  transform: translateY(-4px);
-  background: rgba(34, 211, 238, 0.14);
-  color: #7c3aed;
 }
