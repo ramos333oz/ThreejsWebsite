@@ -335,6 +335,20 @@ a:hover {
     min-height: auto;
   }
 }
+#hero .hero-background-scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+#hero .hero-background-scene canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 #hero .hero__content {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
@@ -1183,3 +1197,5 @@ a:hover {
   font-size: 1.7rem;
   text-transform: none;
 }
+
+/*# sourceMappingURL=main.css.map */
