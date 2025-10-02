@@ -506,6 +506,7 @@ a:hover {
   padding: 0;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 #about .about-card--story {
   align-content: start;
@@ -555,47 +556,49 @@ a:hover {
 }
 #about .about-profile-card {
   position: relative;
-  width: clamp(20rem, 24vw, 24rem);
-  height: clamp(25rem, 30vw, 28rem);
+  width: clamp(20rem, 22vw, 24rem);
+  aspect-ratio: 4/5;
   border-radius: 1.4rem;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  box-shadow: 20px 20px 60px rgba(15, 23, 42, 0.18), -20px -20px 60px rgba(255, 255, 255, 0.45);
+  isolation: isolate;
+  box-shadow: 20px 20px 60px rgba(71, 85, 105, 0.18), -20px -20px 60px rgba(255, 255, 255, 0.6);
 }
 #about .about-profile-card .bg {
   position: absolute;
-  top: 0.6rem;
-  left: 0.6rem;
-  right: 0.6rem;
-  bottom: 0.6rem;
+  inset: clamp(0.5rem, 0.6vw, 0.8rem);
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(24px);
   border-radius: 1rem;
-  outline: 2px solid rgba(255, 255, 255, 0.9);
+  outline: 2px solid rgba(255, 255, 255, 0.92);
   z-index: 1;
 }
 #about .about-profile-card .blob {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: clamp(10rem, 14vw, 14rem);
-  height: clamp(10rem, 14vw, 14rem);
+  width: clamp(11rem, 16vw, 16rem);
+  height: clamp(11rem, 16vw, 16rem);
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(124, 58, 237, 0.6), rgba(34, 211, 238, 0.45));
-  filter: blur(14px);
-  opacity: 0.9;
-  transform: translate(-50%, -50%);
-  animation: about-blob-bounce 6s ease-in-out infinite;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.6), rgba(34, 211, 238, 0.5));
+  filter: blur(12px);
+  opacity: 0.95;
+  transform: translate(-100%, -100%);
+  animation: about-blob-bounce 5s ease-in-out infinite;
   z-index: 0;
 }
 #about .bio-body {
   position: relative;
   z-index: 2;
   display: grid;
-  gap: 1.6rem;
-  padding: clamp(1.8rem, 1.5vw + 1.2rem, 2.4rem);
+  gap: clamp(1.2rem, 1vw + 0.8rem, 1.8rem);
+  padding: clamp(1.6rem, 1.5vw + 1rem, 2.2rem);
+  width: 100%;
+  min-height: 100%;
+  justify-items: center;
+  text-align: center;
 }
 #about .bio-meta {
   display: grid;
@@ -618,26 +621,27 @@ a:hover {
   justify-content: center;
 }
 #about .bio-media img {
-  width: clamp(18rem, 22vw, 22rem);
+  width: clamp(15rem, 18vw, 18rem);
+  max-width: 82%;
   height: auto;
   border-radius: 1.2rem;
   box-shadow: 0 20px 40px rgba(15, 23, 42, 0.18);
 }
 @keyframes about-blob-bounce {
   0% {
-    transform: translate(-50%, -50%) translate3d(0, 0, 0);
+    transform: translate(-100%, -100%) translate3d(0, 0, 0);
   }
   25% {
-    transform: translate(-50%, -50%) translate3d(40%, -10%, 0);
+    transform: translate(-100%, -100%) translate3d(110%, -20%, 0);
   }
   50% {
-    transform: translate(-50%, -50%) translate3d(30%, 45%, 0);
+    transform: translate(-100%, -100%) translate3d(110%, 110%, 0);
   }
   75% {
-    transform: translate(-50%, -50%) translate3d(-35%, 35%, 0);
+    transform: translate(-100%, -100%) translate3d(-10%, 110%, 0);
   }
   100% {
-    transform: translate(-50%, -50%) translate3d(0, 0, 0);
+    transform: translate(-100%, -100%) translate3d(0, 0, 0);
   }
 }
 

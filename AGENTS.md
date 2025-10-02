@@ -5,13 +5,13 @@
 - `javascript/` holds ES modules (`logo-viewer.js`, `scrollveal.js`, `valtilt.js`) imported from `main.js`.
 - `style/` contains the authored Sass partials; `sass` builds to `css/main.css`, which ships in production while retaining tokens in `style/`.
 - `assets/` stores imagery and `assets/3d/` GLB models; avoid inlining large binaries in git history.
-- `docs/` houses reference material—add product notes or research here alongside the new style guide.
+- `docs/` houses reference materialï¿½add product notes or research here alongside the new style guide.
 
 ## Build, Test, and Development Commands
-- `npm run dev` — Watches Sass, boots Vite dev server, and hot-reloads Three.js canvases.
-- `npm run build` — Produces production CSS/JS in `dist/`; run before commits touching styling or scripts.
-- `npm run preview` — Serves the built bundle locally to mirror the deploy target.
-- `npm run sass:watch` — Optional if you want only Sass recompilation without Vite.
+- `npm run dev` ï¿½ Watches Sass, boots Vite dev server, and hot-reloads Three.js canvases.
+- `npm run build` ï¿½ Produces production CSS/JS in `dist/`; run before commits touching styling or scripts.
+- `npm run preview` ï¿½ Serves the built bundle locally to mirror the deploy target.
+- `npm run sass:watch` ï¿½ Optional if you want only Sass recompilation without Vite.
 
 ## Coding Style & Naming Conventions
 - Use two-space indentation for JS, Sass, and HTML; keep modules in ES syntax with named exports.
@@ -29,3 +29,24 @@
 - Reference related issues in the body (`Refs #123`) and summarize visual changes (before/after screenshots when styling shifts).
 - PRs should list the commands executed (`npm run build`, manual QA steps) and call out any follow-up work.
 - Request review from another contributor familiar with the section you touched (e.g., styling vs. Three.js).
+
+[byterover-mcp]
+
+[byterover-mcp]
+
+You are given two tools from Byterover MCP server, including
+## 1. `byterover-store-knowledge`
+You `MUST` always use this tool when:
+
++ Learning new patterns, APIs, or architectural decisions from the codebase
++ Encountering error solutions or debugging techniques
++ Finding reusable code patterns or utility functions
++ Completing any significant task or plan implementation
+
+## 2. `byterover-retrieve-knowledge`
+You `MUST` always use this tool when:
+
++ Starting any new task or implementation to gather relevant context
++ Before making architectural decisions to understand existing patterns
++ When debugging issues to check for previous solutions
++ Working with unfamiliar parts of the codebase
