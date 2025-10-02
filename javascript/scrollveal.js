@@ -39,10 +39,19 @@ export function initScrollReveal() {
     origin: window.innerWidth > 768 ? "left" : "bottom",
   })
 
+  // Fade in the entire highlights container box
+  sr.reveal(".hero__highlights", {
+    ...defaultProps,
+    delay: 700,
+    distance: "0px",        // Pure fade-in: no sliding motion
+    duration: 1000,
+  })
+
   sr.reveal(".hero__highlights li", {
     ...defaultProps,
     delay: 700,
     interval: 120,
+    distance: "0px",        // Pure fade-in: no sliding motion
     origin: window.innerWidth > 768 ? "right" : "bottom",
   })
 
