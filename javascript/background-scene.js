@@ -45,9 +45,28 @@ class BackgroundScene {
     // Step 6: Position the groups (where they'll appear on screen)
     this.leftGroup.position.set(-8, 2, 0)   // Left side: x=-8, up a bit: y=2
     this.rightGroup.position.set(8, -1, 0)  // Right side: x=8, down a bit: y=-1
-    console.log("âœ… Step 6: Groups positioned")
-    console.log("   Left group at:", this.leftGroup.position)
-    console.log("   Right group at:", this.rightGroup.position)
+    
+    // Step 6b: Setup entry animation (slide down from top)
+    this.isAnimatingEntry = true           // Flag: "entry animation is running"
+    this.entryAnimationDuration = 1.5      // Animation length in seconds
+    this.entryAnimationTime = 0            // Current progress time
+    this.floatingStartTime = 0             // Will store when floating animation starts
+
+    // Store final positions (where cubes should end up)
+    this.leftFinalY = 2                    // Left cube final Y position
+    this.rightFinalY = -1                  // Right cube final Y position
+
+    // Store starting positions (above screen, out of view)
+    this.leftStartY = 15                   // Start way above
+    this.rightStartY = 15                  // Start way above
+
+    // Set cubes to their starting positions (above screen)
+    this.leftGroup.position.y = this.leftStartY
+    this.rightGroup.position.y = this.rightStartY
+    
+    console.log("✅ Step 6: Groups positioned")
+    console.log("   Left cube will slide from Y=" + this.leftStartY + " to Y=" + this.leftFinalY)
+    console.log("   Right cube will slide from Y=" + this.rightStartY + " to Y=" + this.rightFinalY)
 
     // Step 7: Add lights so we can see the cubes
     this.addLights()
@@ -115,6 +134,13 @@ class BackgroundScene {
     console.log("âœ… Step 8: Both cubes created with prototype material")
   }
 
+  // Easing function for smooth motion (not linear/robotic)
+  easeOutCubic(t) {
+    // Makes the cube slow down as it reaches the end
+    // Fast at start → slower at end (like a ball rolling to a stop)
+    return 1 - Math.pow(1 - t, 3)
+  }
+
   handleResize() {
     // Update camera aspect ratio when window resizes
     this.camera.aspect = window.innerWidth / window.innerHeight
@@ -130,17 +156,66 @@ class BackgroundScene {
     const delta = this.clock.getDelta()    // Time since last frame
     const elapsed = this.clock.getElapsedTime()  // Total time since start
 
-    // Animate LEFT GROUP
-    // Float up and down using sine wave
-    this.leftGroup.position.y = 2 + Math.sin(elapsed * 0.5) * 0.5
-    // Rotate slowly
-    this.leftGroup.rotation.y += 0.2 * delta
-    
-    // Animate RIGHT GROUP (different timing for variety)
-    // Float up and down using cosine wave (different phase)
-    this.rightGroup.position.y = -1 + Math.cos(elapsed * 0.4) * 0.6
-    // Rotate slowly in opposite direction
-    this.rightGroup.rotation.y -= 0.15 * delta
+    // ========================================
+    // ENTRY ANIMATION (only runs at page load)
+    // ========================================
+    if (this.isAnimatingEntry) {
+      // Increase the animation timer
+      this.entryAnimationTime += delta
+      
+      // Calculate progress (0.0 = start, 1.0 = finished)
+      let progress = this.entryAnimationTime / this.entryAnimationDuration
+      progress = Math.min(progress, 1.0)  // Cap at 100%
+      
+      // Apply easing for smooth motion
+      const easedProgress = this.easeOutCubic(progress)
+      
+      // LEFT CUBE - Slide down
+      // Formula: currentY = startY + (finalY - startY) * progress
+      this.leftGroup.position.y = this.leftStartY + (this.leftFinalY - this.leftStartY) * easedProgress
+      
+      // RIGHT CUBE - Slide down with slight delay (stagger effect)
+      const rightDelay = 0.13  // 0.13 second delay
+      const rightProgress = Math.max(0, progress - rightDelay)
+      const rightEasedProgress = this.easeOutCubic(rightProgress)
+      this.rightGroup.position.y = this.rightStartY + (this.rightFinalY - this.rightStartY) * rightEasedProgress
+      
+      // Check if BOTH animations finished (including right cube's delay)
+      // Right cube finishes at: duration + delay = 1.5 + 0.13 = 1.63 seconds
+      const totalDuration = this.entryAnimationDuration + rightDelay
+      if (this.entryAnimationTime >= totalDuration) {
+        this.isAnimatingEntry = false  // Stop entry animation
+        this.floatingStartTime = elapsed  // Record when floating starts
+        
+        // Force both cubes to exact final positions (no rounding errors)
+        this.leftGroup.position.y = this.leftFinalY
+        this.rightGroup.position.y = this.rightFinalY
+        
+        console.log("✅ Entry animation complete! Starting floating at time:", elapsed)
+      }
+      
+      // Still apply rotation during entry
+      this.leftGroup.rotation.y += 0.2 * delta
+      this.rightGroup.rotation.y -= 0.15 * delta
+    }
+    // ========================================
+    // NORMAL ANIMATION (floating, after entry is done)
+    // ========================================
+    else {
+      // Calculate time SINCE floating started (not total time)
+      const floatingTime = elapsed - this.floatingStartTime
+      
+      // LEFT CUBE: Float up and down using sine wave (starts at 0)
+      // Math.sin(0) = 0, so starts at exact final position
+      this.leftGroup.position.y = this.leftFinalY + Math.sin(floatingTime * 0.5) * 0.5
+      this.leftGroup.rotation.y += 0.2 * delta
+      
+      // RIGHT CUBE: Float using sine wave (different speed for variety)
+      // Use Math.sin() so it starts at 0 (no jump!)
+      // Different multiplier (0.4 vs 0.5) makes it float at different speed
+      this.rightGroup.position.y = this.rightFinalY + Math.sin(floatingTime * 0.4) * 0.6
+      this.rightGroup.rotation.y -= 0.15 * delta
+    }
 
     // Render the scene
     this.renderer.render(this.scene, this.camera)
