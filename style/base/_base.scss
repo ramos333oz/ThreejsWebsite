@@ -1,3 +1,29 @@
+// Register CSS custom properties for smooth transitions
+// This tells the browser these properties can be animated
+@property --color-start {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgb(245, 247, 251);
+}
+
+@property --color-mid {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgb(236, 252, 255);
+}
+
+@property --color-end {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgb(241, 245, 255);
+}
+
+@property --glow-color {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgb(37, 99, 235);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,12 +37,29 @@ html {
 }
 
 body {
-  background: $body-bg-gradient;
+  // CSS Custom Properties for dynamic color changes (updated by JS)
+  // Default colors (hero section)
+  --color-start: rgb(245, 247, 251);
+  --color-mid: rgb(236, 252, 255);
+  --color-end: rgb(241, 245, 255);
+  --glow-color: rgb(37, 99, 235);
+  
+  // Use CSS variables for gradient (allows smooth transitions)
+  background: linear-gradient(
+    140deg,
+    var(--color-start),
+    var(--color-mid),
+    var(--color-end)
+  );
+  
   color: $ink-body;
   line-height: 1.68;
   text-align: left;
   text-rendering: optimizeLegibility;
   position: relative;
+  
+  // Smooth transition for color changes
+  transition: background 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body::before {
@@ -24,7 +67,31 @@ body::before {
   position: fixed;
   inset: -25% -15% -20% -15%;
   pointer-events: none;
-  background: $body-radial-blue, $body-radial-purple;
+  
+  // Use CSS custom properties for dynamic glow colors
+  background: 
+    radial-gradient(
+      circle at 18% 16%, 
+      color-mix(in srgb, var(--glow-color) 28%, transparent) 0%, 
+      transparent 62%
+    ),
+    radial-gradient(
+      circle at 84% 88%, 
+      color-mix(in srgb, var(--glow-color) 26%, transparent) 0%, 
+      transparent 60%
+    );
+  
   z-index: -1;
   opacity: 1;
+  
+  // Smooth transition for glow color changes
+  transition: background 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// Disable transitions for reduced motion
+@media (prefers-reduced-motion: reduce) {
+  body,
+  body::before {
+    transition: none !important;
+  }
 }

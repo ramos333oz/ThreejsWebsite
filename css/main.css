@@ -8,6 +8,26 @@
 ORDER: Base + Typography > Generar Layout + Grid > Page Layout > Components
 */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap");
+@property --color-start {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgb(245, 247, 251);
+}
+@property --color-mid {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgb(236, 252, 255);
+}
+@property --color-end {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgb(241, 245, 255);
+}
+@property --glow-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgb(37, 99, 235);
+}
 * {
   margin: 0;
   padding: 0;
@@ -21,12 +41,17 @@ html {
 }
 
 body {
-  background: linear-gradient(140deg, #f5f7fb 0%, #ecfcff 52%, #f1f5ff 100%);
+  --color-start: rgb(245, 247, 251);
+  --color-mid: rgb(236, 252, 255);
+  --color-end: rgb(241, 245, 255);
+  --glow-color: rgb(37, 99, 235);
+  background: linear-gradient(140deg, var(--color-start), var(--color-mid), var(--color-end));
   color: #475569;
   line-height: 1.68;
   text-align: left;
   text-rendering: optimizeLegibility;
   position: relative;
+  transition: background 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body::before {
@@ -34,11 +59,18 @@ body::before {
   position: fixed;
   inset: -25% -15% -20% -15%;
   pointer-events: none;
-  background: radial-gradient(circle at 18% 16%, rgba(37, 99, 235, 0.28) 0%, rgba(37, 99, 235, 0) 62%), radial-gradient(circle at 84% 88%, rgba(124, 58, 237, 0.26) 0%, rgba(124, 58, 237, 0) 60%);
+  background: radial-gradient(circle at 18% 16%, color-mix(in srgb, var(--glow-color) 28%, transparent) 0%, transparent 62%), radial-gradient(circle at 84% 88%, color-mix(in srgb, var(--glow-color) 26%, transparent) 0%, transparent 60%);
   z-index: -1;
   opacity: 1;
+  transition: background 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  body,
+  body::before {
+    transition: none !important;
+  }
+}
 h1,
 h2,
 h3,
@@ -1196,4 +1228,44 @@ a:hover {
   font-weight: 600;
   font-size: 1.7rem;
   text-transform: none;
+}
+
+.section-3d-scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.section-3d-scene canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.section-3d-scene--left canvas {
+  transform: translateX(-10%);
+}
+.section-3d-scene--right canvas {
+  transform: translateX(10%);
+}
+@media (max-width: 56.25em) {
+  .section-3d-scene--left canvas, .section-3d-scene--right canvas {
+    transform: translateX(0) scale(0.8);
+  }
+}
+@media (max-width: 37.5em) {
+  .section-3d-scene--left canvas, .section-3d-scene--right canvas {
+    transform: translateX(0) scale(0.6);
+  }
+}
+
+.section--about,
+.section--skills,
+.section--projects,
+.section--education,
+.section--certificates {
+  position: relative;
+  overflow: hidden;
 }

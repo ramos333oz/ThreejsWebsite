@@ -1,0 +1,66 @@
+// ========================================
+// Section 3D Scene Positioning
+// ========================================
+// These styles position and control the 3D scenes
+// that appear in each section on scroll
+
+.section-3d-scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;              // Behind section content
+  pointer-events: none;     // Clicks pass through
+  overflow: hidden;         // Prevent overflow
+  
+  canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  
+  // Left-positioned models (About, Projects, Certificates)
+  &--left {
+    canvas {
+      transform: translateX(-10%);
+    }
+  }
+  
+  // Right-positioned models (Skills, Education)
+  &--right {
+    canvas {
+      transform: translateX(10%);
+    }
+  }
+  
+  // Tablet and below: center models, scale down
+  @include respond(tab-port) {
+    &--left canvas,
+    &--right canvas {
+      transform: translateX(0) scale(0.8);
+    }
+  }
+  
+  // Mobile: scale down further
+  @include respond(phone) {
+    &--left canvas,
+    &--right canvas {
+      transform: translateX(0) scale(0.6);
+    }
+  }
+}
+
+// ========================================
+// Section Container Positioning
+// ========================================
+// Ensure sections can contain absolute positioned 3D scenes
+
+.section--about,
+.section--skills,
+.section--projects,
+.section--education,
+.section--certificates {
+  position: relative;  // Required for absolute positioning of 3D layer
+  overflow: hidden;    // Prevent 3D models from bleeding outside
+}
+

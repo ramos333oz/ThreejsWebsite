@@ -30,63 +30,83 @@
 ```
 ┌────────────────────────────────────────┐
 │ 🏠 HERO                                │
-│ BG: STAYS SAME (current blue gradient)│
+│ BG: Light Blue → Cyan → Pale Blue     │
 │ 3D: Background cubes (existing - keep) │
 │ ✅ NO CHANGES - Already perfect        │
 └────────────────────────────────────────┘
-      ↓ scroll down ↓ COLOR TRANSITIONS START HERE
+      ↓ scroll down ↓ SUBTLE COLOR TRANSITIONS START
 ┌────────────────────────────────────────┐
 │ 👤 ABOUT                               │
-│ BG: Purple → Pink (🔥 warm)            │
+│ BG: Pale Cyan → Sky → Light Cyan      │
 │ 3D: Cube on LEFT (fades in)           │
+│ 💡 Slightly lighter cyan variation     │
 └────────────────────────────────────────┘
       ↓ scroll down
 ┌────────────────────────────────────────┐
 │ 💻 SKILLS                              │
-│ BG: Teal → Mint (❄️ cool)             │
+│ BG: Ice Blue → Azure → Bright Cyan    │
 │ 3D: Cube on RIGHT (fades in)          │
+│ 💡 Fresh ice blue, stays cool          │
 └────────────────────────────────────────┘
       ↓ scroll down
 ┌────────────────────────────────────────┐
 │ 📁 PROJECTS                            │
-│ BG: Coral → Peach (🔥 warm)            │
+│ BG: Sky Blue → Pale Blue → Periwinkle │
 │ 3D: Cube on LEFT (fades in)           │
+│ 💡 Soft blue with hint of purple       │
 └────────────────────────────────────────┘
       ↓ scroll down
 ┌────────────────────────────────────────┐
 │ 🎓 EDUCATION                           │
-│ BG: Sky → Ice (❄️ cool)               │
+│ BG: Mint-Cyan → Aqua → Ice Blue       │
 │ 3D: Cube on RIGHT (fades in)          │
+│ 💡 Light mint meets blue, refreshing   │
 └────────────────────────────────────────┘
       ↓ scroll down
 ┌────────────────────────────────────────┐
 │ 🏆 CERTIFICATES                        │
-│ BG: Lavender → Lilac (🔥 warm)         │
+│ BG: Pale Lavender → Sky → Light Cyan  │
 │ 3D: Cube on LEFT (fades in)           │
+│ 💡 Soft lavender-blue blend            │
 └────────────────────────────────────────┘
-      ↓ scroll down ↓ BACK TO HERO COLORS
+      ↓ scroll down ↓ RETURN TO START
 ┌────────────────────────────────────────┐
 │ 📧 CONTACT                             │
-│ BG: Blue → Cyan (return to hero)      │
+│ BG: Light Blue → Cyan (same as hero)  │
 │ 3D: Logo viewers (existing - keep)    │
+│ 🔄 Full circle back to hero colors     │
 └────────────────────────────────────────┘
+
+✨ ALL GRADIENTS: Bright (RGB 235-255), Cool spectrum, Premium feel
 ```
 
 ---
 
-## 🎨 COLOR SCHEME (Option 3)
+## 🎨 COLOR SCHEME (Cohesive Bright Theme)
 
-**IMPORTANT**: Hero section keeps its current colors (no changes)
+**DESIGN PRINCIPLE**: All sections use bright, light gradients consistent with Hero's aesthetic
 
-| Section | Colors | RGB Start | RGB Mid | RGB End | Glow RGB | Notes |
-|---------|--------|-----------|---------|---------|----------|-------|
-| **Hero** | **NO CHANGE** | - | - | - | - | ✅ Keep current SCSS gradient |
-| About | Purple-Pink | 251,245,255 | 252,231,255 | 255,233,245 | 124,58,237 | 🔥 First transition |
-| Skills | Teal-Mint | 240,253,250 | 236,254,255 | 240,249,255 | 34,211,238 | ❄️ Cool |
-| Projects | Coral-Peach | 255,245,245 | 255,241,242 | 255,251,235 | 249,115,22 | 🔥 Warm |
-| Education | Sky-Ice | 240,249,255 | 224,242,254 | 240,253,250 | 14,165,233 | ❄️ Cool |
-| Certificates | Lavender | 250,245,255 | 245,243,255 | 251,241,255 | 168,85,247 | 🔥 Warm |
-| Contact | Blue (return) | 245,247,251 | 236,252,255 | 241,245,255 | 37,99,235 | ❄️ Return to hero colors |
+**Hero Reference Colors**: 
+- Current: Light Blue → Cyan → Pale Blue
+- RGB: `245,247,251 → 236,252,255 → 241,245,255`
+- Feel: Bright, airy, professional
+
+| Section | Theme | RGB Start | RGB Mid | RGB End | Glow RGB | Notes |
+|---------|-------|-----------|---------|---------|----------|-------|
+| **Hero** | **Light Blue-Cyan** | - | - | - | - | ✅ Keep current (245,247,251 → 236,252,255 → 241,245,255) |
+| About | **Pale Cyan-Sky** | 240,249,255 | 236,252,255 | 235,247,255 | 56,189,248 | Slightly lighter cyan |
+| Skills | **Ice Blue-Teal** | 236,254,255 | 224,242,254 | 236,252,255 | 34,211,238 | Fresh ice blue |
+| Projects | **Sky-Periwinkle** | 240,249,255 | 235,245,255 | 237,233,254 | 99,102,241 | Soft blue-purple |
+| Education | **Mint-Cyan** | 236,254,252 | 240,253,250 | 235,250,255 | 20,184,166 | Light mint-blue |
+| Certificates | **Pale Lavender-Sky** | 245,243,255 | 240,249,255 | 235,250,255 | 139,92,246 | Soft lavender-blue |
+| Contact | **Return to Hero** | 245,247,251 | 236,252,255 | 241,245,255 | 37,99,235 | Same as Hero (full circle) |
+
+**Color Philosophy**:
+- ✨ All colors in the **240-255 RGB range** (very bright/light)
+- 🎨 Gradients stay within **blue/cyan/cool spectrum**
+- 🌊 Subtle variations create visual interest without jarring changes
+- 💎 Maintains premium, professional aesthetic
+- 🔄 Smooth transitions feel natural and cohesive
 
 ---
 
@@ -193,49 +213,52 @@ initScrollEffects()
 import * as THREE from "three"
 
 // ========== COLOR THEMES ==========
+// NOTE: Hero section NOT included - it keeps current colors
+// All colors are bright (RGB 235-255) and stay within cool blue/cyan spectrum
+// This maintains visual consistency with the Hero's professional aesthetic
+
 const backgroundThemes = {
-  // NOTE: Hero section NOT included - it keeps current colors
   about: {
     name: "About",
-    colorStart: [251, 245, 255],
-    colorMid: [252, 231, 255],
-    colorEnd: [255, 233, 245],
-    glowColor: [124, 58, 237],
+    colorStart: [240, 249, 255],    // Pale cyan
+    colorMid: [236, 252, 255],      // Bright cyan (close to hero)
+    colorEnd: [235, 247, 255],      // Light sky blue
+    glowColor: [56, 189, 248],      // Bright sky blue glow
   },
   skills: {
     name: "Skills",
-    colorStart: [240, 253, 250],
-    colorMid: [236, 254, 255],
-    colorEnd: [240, 249, 255],
-    glowColor: [34, 211, 238],
+    colorStart: [236, 254, 255],    // Ice blue
+    colorMid: [224, 242, 254],      // Azure
+    colorEnd: [236, 252, 255],      // Bright cyan
+    glowColor: [34, 211, 238],      // Teal-cyan glow
   },
   projects: {
     name: "Projects",
-    colorStart: [255, 245, 245],
-    colorMid: [255, 241, 242],
-    colorEnd: [255, 251, 235],
-    glowColor: [249, 115, 22],
+    colorStart: [240, 249, 255],    // Sky blue
+    colorMid: [235, 245, 255],      // Pale blue
+    colorEnd: [237, 233, 254],      // Soft periwinkle
+    glowColor: [99, 102, 241],      // Indigo glow (subtle)
   },
   education: {
     name: "Education",
-    colorStart: [240, 249, 255],
-    colorMid: [224, 242, 254],
-    colorEnd: [240, 253, 250],
-    glowColor: [14, 165, 233],
+    colorStart: [236, 254, 252],    // Mint-cyan
+    colorMid: [240, 253, 250],      // Light mint
+    colorEnd: [235, 250, 255],      // Ice blue
+    glowColor: [20, 184, 166],      // Teal glow
   },
   certificates: {
     name: "Certificates",
-    colorStart: [250, 245, 255],
-    colorMid: [245, 243, 255],
-    colorEnd: [251, 241, 255],
-    glowColor: [168, 85, 247],
+    colorStart: [245, 243, 255],    // Pale lavender
+    colorMid: [240, 249, 255],      // Sky blue
+    colorEnd: [235, 250, 255],      // Light cyan
+    glowColor: [139, 92, 246],      // Soft violet glow
   },
   contact: {
     name: "Contact",
-    colorStart: [245, 247, 251],
+    colorStart: [245, 247, 251],    // Return to hero colors
     colorMid: [236, 252, 255],
     colorEnd: [241, 245, 255],
-    glowColor: [37, 99, 235],
+    glowColor: [37, 99, 235],       // Hero blue glow
   }
 }
 
@@ -477,8 +500,13 @@ export function initScrollEffects() {
 - [ ] Page loads without errors
 - [ ] Console shows "Scroll Effects Manager ready"
 - [ ] **Hero section stays UNCHANGED** (current gradient + cubes)
-- [ ] Scroll to About → Background changes to purple (first transition)
-- [ ] Scroll to Skills → Background changes to teal
+- [ ] Scroll to About → Background subtly shifts to pale cyan (first transition)
+- [ ] Scroll to Skills → Background shifts to ice blue
+- [ ] Scroll to Projects → Background shifts to soft periwinkle
+- [ ] Scroll to Education → Background shifts to mint-cyan
+- [ ] Scroll to Certificates → Background shifts to lavender-blue
+- [ ] Scroll to Contact → Background returns to hero blue
+- [ ] All transitions are smooth and stay bright/light
 - [ ] Cube appears in About (left side)
 - [ ] Cube appears in Skills (right side)
 - [ ] NO cube in Hero section (existing cubes remain)
@@ -500,13 +528,16 @@ export function initScrollEffects() {
 
 ## 🎯 SUCCESS CRITERIA
 
-✅ Background colors change for all 7 sections  
+✅ Background colors change for all 6 sections (Hero excluded)  
+✅ All colors stay bright and consistent with Hero theme  
+✅ Transitions are subtle and professional (no jarring changes)  
 ✅ 3D cubes fade in/out smoothly  
 ✅ Left/right positioning alternates  
 ✅ Maintains 60 FPS on desktop  
 ✅ Works on mobile (responsive)  
 ✅ Respects reduced motion preference  
-✅ Glassmorphism cards look premium with all colors
+✅ Glassmorphism cards look premium with all colors  
+✅ Cool blue/cyan spectrum maintained throughout
 
 ---
 
