@@ -1,9 +1,5 @@
 import * as THREE from "three"
 
-// ========== COLOR THEMES ==========
-// NOTE: Hero section NOT included - it keeps current colors
-// All colors are bright (RGB 235-255) and stay within cool blue/cyan spectrum
-// This maintains visual consistency with the Hero's professional aesthetic
 
 const backgroundThemes = {
   about: {
@@ -50,17 +46,13 @@ const backgroundThemes = {
   }
 }
 
-// ========== 3D MODEL CONFIG ==========
-// Starting with ABOUT SECTION ONLY for testing
-// Other sections will be added after cube animation implementation
+// ========== ABOUT 3D MODEL (LEFT) ==========
 const modelConfig = {
-  about: { position: "left", enabled: true },
-  // TODO: Enable after About cube animation is approved
-  // skills: { position: "right", enabled: true },
-  // projects: { position: "left", enabled: true },
-  // education: { position: "right", enabled: true },
-  // certificates: { position: "left", enabled: true },
+  about: { position: "Left", enabled: true },
 }
+
+// ========== ABOUT 3D MODEL (RIGHT) ==========
+
 
 // ========== 3D SCENE CLASS ==========
 class Section3DScene {
@@ -69,13 +61,11 @@ class Section3DScene {
     this.position = position
     this.opacity = 0
     this.targetOpacity = 0
-    
-    console.log(`📦 Creating 3D scene for ${container.id} (${position} side)`)
-    
+        
     // Three.js setup
     this.scene = new THREE.Scene()
     this.camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100)
-    this.camera.position.set(0, 0, 8)
+    this.camera.position.set(8, 0, 11)
     
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
     this.renderer.setClearColor(0x000000, 0)
@@ -106,7 +96,6 @@ class Section3DScene {
     this.motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
     this.animationEnabled = !this.motionQuery.matches
     
-    console.log(`✅ 3D scene ready for ${container.id}`)
   }
   
   addLights() {
@@ -133,7 +122,6 @@ class Section3DScene {
     }
     
     this.scene.add(this.model)
-    console.log(`  🎲 Cube created (position: ${this.position})`)
   }
   
   handleResize() {
@@ -203,12 +191,8 @@ class ScrollEffectsManager {
   }
   
   init() {
-    console.log("🚀 Initializing Scroll Effects Manager...")
-    console.log(`   📋 Background themes: ${Object.keys(backgroundThemes).length} sections`)
-    console.log(`   🎲 3D models: ${Object.keys(modelConfig).filter(k => modelConfig[k].enabled).length} sections`)
     this.initializeSections()
     this.setupIntersectionObserver()
-    console.log("✅ Scroll Effects Manager ready")
   }
   
   initializeSections() {
@@ -220,7 +204,6 @@ class ScrollEffectsManager {
         const scene = new Section3DScene(section, config.position)
         this.scenes.set(sectionId, scene)
       } else {
-        console.warn(`⚠️  Section not found: ${sectionId}`)
       }
     })
   }
@@ -240,17 +223,14 @@ class ScrollEffectsManager {
       })
     }, options)
     
-    // Watch all sections with IDs
     document.querySelectorAll("section[id]").forEach(section => {
       this.observer.observe(section)
-      console.log(`👁️  Watching section: ${section.id}`)
     })
   }
   
   handleSectionChange(sectionId) {
     if (sectionId === this.currentSection) return
     
-    console.log(`📍 Section changed: ${this.currentSection} → ${sectionId}`)
     this.currentSection = sectionId
     
     this.updateBackgroundColors(sectionId)
@@ -258,9 +238,7 @@ class ScrollEffectsManager {
   }
   
   updateBackgroundColors(sectionId) {
-    // Skip hero section - it keeps its original colors
     if (sectionId === 'hero') {
-      // Set target back to hero colors
       this.targetColors = {
         start: [245, 247, 251],
         mid: [236, 252, 255],
@@ -268,13 +246,11 @@ class ScrollEffectsManager {
         glow: [37, 99, 235]
       }
       this.startColorAnimation()
-      console.log(`🎨 Background → Hero (original colors)`)
       return
     }
     
     const theme = backgroundThemes[sectionId]
     if (!theme) {
-      console.warn(`⚠️  No theme defined for ${sectionId}`)
       return
     }
     
@@ -287,7 +263,6 @@ class ScrollEffectsManager {
     }
     
     this.startColorAnimation()
-    console.log(`🎨 Background → ${theme.name} theme (smooth lerp)`)
   }
   
   startColorAnimation() {
@@ -359,7 +334,6 @@ class ScrollEffectsManager {
 export function initScrollEffects() {
   // Only initialize once
   if (window.scrollEffectsManager) {
-    console.warn("⚠️  Scroll Effects Manager already initialized")
     return
   }
   

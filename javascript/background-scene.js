@@ -8,7 +8,6 @@ class BackgroundScene {
     
     // Step 1: Create a Three.js Scene (like an empty 3D world)
     this.scene = new THREE.Scene()
-    console.log("âœ… Step 1: Scene created")
     
     // Step 2: Create a Camera (this is our "eyes" looking at the scene)
     this.camera = new THREE.PerspectiveCamera(
@@ -19,7 +18,6 @@ class BackgroundScene {
     )
     // Move camera back so we can see the objects
     this.camera.position.set(0, 0, 15)  // x=0 (center), y=0 (center), z=15 (back)
-    console.log("âœ… Step 2: Camera created at position:", this.camera.position)
 
     // Step 3: Create a Renderer (this draws the 3D scene onto a 2D canvas)
     this.renderer = new THREE.WebGLRenderer({ 
@@ -29,21 +27,18 @@ class BackgroundScene {
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     this.renderer.setClearColor(0x000000, 0)  // Transparent black (0 = fully transparent)
     this.renderer.setSize(window.innerWidth, window.innerHeight)
-    console.log("âœ… Step 3: Renderer created")
     
     // Step 4: Add the canvas to our HTML container
     this.domElement = this.renderer.domElement  // This is the <canvas> element
     this.container.appendChild(this.domElement)
-    console.log("âœ… Step 4: Canvas added to container")
 
     // Step 5: Create Groups to hold our left and right objects
     this.leftGroup = new THREE.Group()   // Group for left cube
     this.rightGroup = new THREE.Group()  // Group for right cube
     this.scene.add(this.leftGroup, this.rightGroup)
-    console.log("âœ… Step 5: Groups created and added to scene")
 
     // Step 6: Position the groups (where they'll appear on screen)
-    this.leftGroup.position.set(-8, 2, 0)   // Left side: x=-8, up a bit: y=2
+    this.leftGroup.position.set(-9, 2, 0)   // Left side: x=-8, up a bit: y=2
     this.rightGroup.position.set(8, -1, 0)  // Right side: x=8, down a bit: y=-1
     
     // Step 6b: Setup entry animation (slide down from top)
@@ -64,10 +59,6 @@ class BackgroundScene {
     this.leftGroup.position.y = this.leftStartY
     this.rightGroup.position.y = this.rightStartY
     
-    console.log("✅ Step 6: Groups positioned")
-    console.log("   Left cube will slide from Y=" + this.leftStartY + " to Y=" + this.leftFinalY)
-    console.log("   Right cube will slide from Y=" + this.rightStartY + " to Y=" + this.rightFinalY)
-
     // Step 7: Add lights so we can see the cubes
     this.addLights()
     
@@ -77,16 +68,12 @@ class BackgroundScene {
     // Step 9: Handle window resize
     this.handleResize = this.handleResize.bind(this)
     window.addEventListener("resize", this.handleResize)
-    console.log("âœ… Step 9: Resize handler added")
 
     // Step 10: Start the animation loop
     this.clock = new THREE.Clock()
     this.animate = this.animate.bind(this)
     this.renderer.setAnimationLoop(this.animate)
-    console.log("âœ… Step 10: Animation loop started")
-    
-    console.log("ðŸŽ‰ Background scene fully initialized!")
-  }
+      }
 
   addLights() {
     // Add basic ambient light (lights everything equally)
@@ -97,9 +84,7 @@ class BackgroundScene {
     const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8)
     directionalLight.position.set(10, 10, 8)
     this.scene.add(directionalLight)
-    
-    console.log("âœ… Step 7: Lights added")
-  }
+      }
 
   createCubes() {
     // LEFT CUBE
@@ -118,7 +103,6 @@ class BackgroundScene {
     
     // Step 4: Add to left group
     this.leftGroup.add(this.leftCube)
-    console.log("âœ… Left cube created with MeshNormalMaterial")
 
     // RIGHT CUBE (same process)
     const rightGeometry = new THREE.BoxGeometry(1.5, 1.5, 1.5)  // Slightly smaller
@@ -129,10 +113,7 @@ class BackgroundScene {
     this.rightCube = new THREE.Mesh(rightGeometry, rightMaterial)
     this.rightCube.rotation.set(0.5, 0.5, 0)  // Rotate it a bit for variety
     this.rightGroup.add(this.rightCube)
-    console.log("âœ… Right cube created with MeshNormalMaterial")
-    
-    console.log("âœ… Step 8: Both cubes created with prototype material")
-  }
+      }
 
   // Easing function for smooth motion (not linear/robotic)
   easeOutCubic(t) {
@@ -190,9 +171,7 @@ class BackgroundScene {
         // Force both cubes to exact final positions (no rounding errors)
         this.leftGroup.position.y = this.leftFinalY
         this.rightGroup.position.y = this.rightFinalY
-        
-        console.log("✅ Entry animation complete! Starting floating at time:", elapsed)
-      }
+              }
       
       // Still apply rotation during entry
       this.leftGroup.rotation.y += 0.2 * delta
@@ -226,21 +205,17 @@ class BackgroundScene {
     this.renderer.setAnimationLoop(null)
     window.removeEventListener("resize", this.handleResize)
     this.renderer.dispose()
-    console.log("âœ… Background scene disposed")
   }
 }
 
 // Export function to initialize the scene
 export function initBackgroundScene() {
-  console.log("ðŸš€ Initializing background scene...")
   
   // Find the hero section
   const heroSection = document.getElementById("hero")
   if (!heroSection) {
-    console.error("âŒ Hero section not found!")
     return
   }
-  console.log("âœ… Hero section found:", heroSection)
 
   // Create a container div for the Three.js canvas
   const container = document.createElement("div")
@@ -249,7 +224,6 @@ export function initBackgroundScene() {
   
   // Insert at the beginning of hero section (so it's behind content)
   heroSection.insertBefore(container, heroSection.firstChild)
-  console.log("âœ… Container created and inserted into hero")
 
   // Create the background scene
   const bgScene = new BackgroundScene(container)

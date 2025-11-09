@@ -50,17 +50,12 @@
   }
 }
 
-// ========================================
-// Section Container Positioning
-// ========================================
-// Ensure sections can contain absolute positioned 3D scenes
-
 .section--about,
 .section--skills,
 .section--projects,
 .section--education,
 .section--certificates {
-  position: relative;  // Required for absolute positioning of 3D layer
-  overflow: hidden;    // Prevent 3D models from bleeding outside
+  position: relative;  
+  overflow: hidden;    
 }
 

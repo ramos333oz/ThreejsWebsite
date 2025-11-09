@@ -98,12 +98,80 @@
       border-radius: 1.6rem;
       overflow: hidden;
       background: transparent;
+      position: relative;
+      width: 100%;
+      display: block;
+
+      // Set aspect ratio for video container (16:9 based on video dimensions 1366x767 ≈ 1.78:1)
+      &.has-video {
+        aspect-ratio: 16 / 9;
+      }
 
       .img-fluid {
         width: 100%;
         height: auto;
         border-radius: 1.8rem;
         box-shadow: 0 24px 60px rgba(30, 41, 59, 0.2);
+      }
+
+      .project-video {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+        box-shadow: none !important; // Remove shadow from video
+        border-radius: 1.6rem; // Match thumbnail border-radius
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        // Hide all video controls across all browsers
+        &::-webkit-media-controls {
+          display: none !important;
+        }
+
+        &::-webkit-media-controls-enclosure {
+          display: none !important;
+        }
+
+        &::-webkit-media-controls-panel {
+          display: none !important;
+        }
+
+        &::-webkit-media-controls-play-button {
+          display: none !important;
+        }
+
+        &::-webkit-media-controls-start-playback-button {
+          display: none !important;
+        }
+
+        // Firefox
+        &::-moz-media-controls {
+          display: none !important;
+        }
+
+        // Edge/IE
+        &::-ms-media-controls {
+          display: none !important;
+        }
+
+        // Prevent controls from showing on hover
+        &:hover {
+          &::-webkit-media-controls {
+            display: none !important;
+          }
+        }
+
+        // Ensure no controls overlay appears
+        &::before,
+        &::after {
+          display: none !important;
+        }
       }
     }
   }
