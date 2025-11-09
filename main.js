@@ -5,6 +5,7 @@ import { initLogoViewers } from "./javascript/logo-viewer"
 import { initBackgroundScene } from "./javascript/background-scene"
 import { initScrollEffects } from "./javascript/scroll-effects-manager"  // NEW
 import { initProjectVideo } from "./javascript/project-video"
+import { initProjectSlider } from "./javascript/project-slider"
 
 initScrollReveal()
 initTilt()
@@ -12,6 +13,7 @@ initLogoViewers()
 initBackgroundScene()  // Initialize 3D background cubes
 initScrollEffects()    // NEW - Initialize scroll-triggered features (About section only for testing)
 initProjectVideo()     // Initialize project video scroll handler
+initProjectSlider()    // Initialize project image slider
 
 const footerYear = document.getElementById("year")
 if (footerYear) {

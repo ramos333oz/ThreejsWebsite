@@ -282,14 +282,21 @@
             </div>
 
             <div class="project-wrapper__image">
-              <div class="thumbnail rounded surface-card">
-                <img
-                  src="./assets/project.png"
-                  class="img-fluid"
-                  alt="Map visualisation highlighting city permits"
+              <div class="thumbnail rounded surface-card has-video">
+                <video
+                  class="img-fluid project-video"
+                  poster="./assets/project.png"
+                  muted
+                  loop
+                  playsinline
+                  preload="auto"
+                  aria-label="Map visualisation highlighting city permits"
                   width="1366"
                   height="767"
-                />
+                >
+                  <source src="./assets/project_videos/Municipal Permit.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
               </div>
             </div>
           </article>
@@ -328,9 +335,64 @@
             </div>
 
             <div class="project-wrapper__image">
-              <div class="thumbnail rounded surface-card">
+              <div class="thumbnail rounded surface-card has-slider">
+                <div class="image-slider">
+                  <img
+                    src="./assets/project_videos/iot.png"
+                    class="img-fluid slider-image active"
+                    alt="IoT device setup"
+                    width="1366"
+                    height="767"
+                  />
+                  <img
+                    src="./assets/project_videos/iot2.png"
+                    class="img-fluid slider-image"
+                    alt="IoT device components"
+                    width="1366"
+                    height="767"
+                  />
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="row project-card surface-card">
+            <div class="project-wrapper__text">
+              <h3 class="project-wrapper__text-title">Child Safety Wearable IoT</h3>
+              <p class="project-wrapper__text-info">
+                Wearable device that tracks a child's location, environmental data, and SOS alerts. Parents receive real-time notifications via GSM while monitoring a Blynk dashboard.
+              </p>
+              <ul class="project-wrapper__meta">
+                <li><strong>Role:</strong> IoT system designer and firmware developer</li>
+                <li><strong>Stack:</strong> Arduino, ESP32, GPS and GSM modules, Blynk Cloud</li>
+              </ul>
+              <ul class="project-wrapper__tags">
+                <li>IoT safety</li>
+                <li>Hardware prototyping</li>
+                <li>Remote monitoring</li>
+              </ul>
+              <div class="project-wrapper__text-btns">
+                <a
+                  href="#projects"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="cta-btn cta-btn--hero cta-btn--projects"
+                  >Field demo recap</a
+                >
+                <a
+                  href="https://github.com/yourusername/child-safety-wearable"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="cta-btn text-color-main"
+                  >System notes</a
+                >
+              </div>
+            </div>
+
+            <div class="project-wrapper__image">
+              <div class="thumbnail rounded surface-card has-image">
                 <img
-                  src="./assets/project.png"
+                  src="./assets/project_videos/iot.png"
                   class="img-fluid"
                   alt="Security analysis dashboard"
                   width="1366"
