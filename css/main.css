@@ -1193,7 +1193,7 @@ a:hover {
 /* Specific styling for UiTM Card */
 #education .timeline__item--uitm {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr 35rem;
   align-items: center;
   gap: 2rem;
 }
@@ -1238,7 +1238,7 @@ a:hover {
 /* KMS Card Styling (Red) */
 #education .timeline__item--kms {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr 35rem;
   align-items: center;
   gap: 2rem;
 }
@@ -1253,7 +1253,7 @@ a:hover {
 /* SPM Card Styling (Blue) */
 #education .timeline__item--spm {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr 35rem;
   align-items: center;
   gap: 2rem;
 }
