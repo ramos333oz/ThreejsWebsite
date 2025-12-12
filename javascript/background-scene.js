@@ -87,33 +87,38 @@ class BackgroundScene {
       }
 
   createCubes() {
-    // LEFT CUBE
-    // Step 1: Create geometry (the shape)
-    const leftGeometry = new THREE.BoxGeometry(2, 2, 2)  // 2x2x2 cube
-    
-    // Step 2: Create material (how it looks) - Using MeshNormalMaterial for prototype
-    // MeshNormalMaterial shows colors based on surface direction - great for testing!
-    const leftMaterial = new THREE.MeshNormalMaterial({
-      transparent: true,
-      opacity: 0.8
+    // Material 1: Royal Blue (Left Object)
+    const shinyMaterialLeft = new THREE.MeshPhysicalMaterial({
+      color: 0x3b82f6,        // Royal Blue
+      metalness: 0.1,
+      roughness: 0.1,
+      transmission: 0.1,
+      clearcoat: 1.0,
+      clearcoatRoughness: 0.1
     })
-    
-    // Step 3: Create mesh (geometry + material = visible object)
-    this.leftCube = new THREE.Mesh(leftGeometry, leftMaterial)
-    
-    // Step 4: Add to left group
+
+    // Material 2: Cyan (Right Object)
+    const shinyMaterialRight = new THREE.MeshPhysicalMaterial({
+      color: 0x22d3ee,        // Cyan
+      metalness: 0.1,
+      roughness: 0.1,
+      transmission: 0.1,
+      clearcoat: 1.0,
+      clearcoatRoughness: 0.1
+    })
+
+    // LEFT OBJECT - Torus Knot (Royal Blue)
+    const leftGeometry = new THREE.TorusKnotGeometry(1.2, 0.4, 100, 16)
+    this.leftCube = new THREE.Mesh(leftGeometry, shinyMaterialLeft)
     this.leftGroup.add(this.leftCube)
 
-    // RIGHT CUBE (same process)
-    const rightGeometry = new THREE.BoxGeometry(1.5, 1.5, 1.5)  // Slightly smaller
-    const rightMaterial = new THREE.MeshNormalMaterial({
-      transparent: true,
-      opacity: 0.8
-    })
-    this.rightCube = new THREE.Mesh(rightGeometry, rightMaterial)
-    this.rightCube.rotation.set(0.5, 0.5, 0)  // Rotate it a bit for variety
+    // RIGHT OBJECT - Icosahedron (Cyan)
+    const rightGeometry = new THREE.IcosahedronGeometry(1.5, 0)
+    
+    this.rightCube = new THREE.Mesh(rightGeometry, shinyMaterialRight)
+    this.rightCube.rotation.set(0.5, 0.5, 0)
     this.rightGroup.add(this.rightCube)
-      }
+  }
 
   // Easing function for smooth motion (not linear/robotic)
   easeOutCubic(t) {

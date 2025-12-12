@@ -106,11 +106,16 @@ class Section3DScene {
   }
   
   createCube() {
-    // Using basic cube geometry for testing
-    const geometry = new THREE.BoxGeometry(2.5, 2.5, 2.5)
-    const material = new THREE.MeshNormalMaterial({ 
-      transparent: true, 
-      opacity: 0.85 
+    // Using Octahedron for "About" section
+    const geometry = new THREE.OctahedronGeometry(1.8, 0)
+    
+    const material = new THREE.MeshPhysicalMaterial({ 
+      color: 0x7dd3fc,      // Sky Blue 300
+      metalness: 0.1,
+      roughness: 0.1,
+      transmission: 0.2,    // Slightly more transparent
+      clearcoat: 1.0,
+      clearcoatRoughness: 0.1
     })
     this.model = new THREE.Mesh(geometry, material)
     
