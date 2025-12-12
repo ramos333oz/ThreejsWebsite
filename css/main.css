@@ -1404,6 +1404,64 @@ a:hover {
     grid-column: span 1;
   }
 }
+/* Projects Decorations - Scroll Driven */
+#projects {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1; /* Above background but maybe behind text? Or in front? User said "enters area behind it", so z-index 0 or -1 relative to cards? */
+              /* Actually "behind it" suggests behind cards. Surface cards are usually z-index 1 or implied. Let's try z-index 0. */
+}
+
+/* Ensure cards are above decorations */
+.project-card, .section-intro {
+  position: relative;
+  z-index: 2; 
+}
+
+.proj-dec-img {
+  position: absolute;
+  width: clamp(15rem, 20vw, 30rem); /* Decent size */
+  height: auto;
+  opacity: 1;
+  filter: drop-shadow(0 15px 30px rgba(0,0,0,0.2));
+  will-change: transform;
+}
+
+/* Initial positions (JS will override transforms, but CSS sets baseline) */
+/* Football starts Left */
+.proj-dec-football {
+  top: 15%;
+  left: -10%; /* Start off-screen left */
+}
+
+/* Permit starts Right */
+.proj-dec-permit {
+  top: 60%; 
+  right: -22%; /* Start off-screen right */
+}
+
+/* Microchip starts Left (Lower) */
+.proj-dec-microchip {
+  top: 85%;
+  left: -10%;
+}
+
+@media (max-width: 62em) {
+  .proj-dec-img {
+    width: 20rem; /* Smaller on tablet */
+    opacity: 0.5; /* Fade out to not distract */
+  }
+}
+
 @media (max-width: 37.5em) {
   #certificates .certificate-grid {
     grid-template-columns: 1fr;
