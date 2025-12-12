@@ -1,12 +1,8 @@
 
-.moat
 node_modules/
 dist/
 .vite/
 .sass-cache/
-.moat/
-drawbridge
-.github
+
 .vscode
-AGENTS.md
-CLAUDE.md
+
