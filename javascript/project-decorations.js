@@ -47,20 +47,20 @@ export function initProjectDecorations() {
     // --- FOOTBALL (Active 0.0 - 0.55) ---
     if (progress < 0.6) {
       if (progress < 0.15) {
-        // FAST Entry
+        // FAST Entry (Rolling In)
         const p = progress / 0.15
         state.football.targetX = -20 + (30 * p) // -20 to 10
-        state.football.targetRot = p * 10
+        state.football.targetRot = p * 360      // Roll 360 degrees
       } else if (progress < 0.35) {
-        // Hold
+        // Hold (Stopped Rolling)
         const p = (progress - 0.15) / 0.2
-        state.football.targetX = 10 + (5 * p) // 10 to 15
-        state.football.targetRot = 10 + (p * 5)
+        state.football.targetX = 10 + (5 * p) // 10 to 15 (Slow drift)
+        state.football.targetRot = 360        // Stop rotation at 360
       } else {
-        // Exit
+        // Exit (Rolling Backwards)
         const p = (progress - 0.35) / 0.15
         state.football.targetX = 15 - (35 * p) // 15 to -20
-        state.football.targetRot = 15 + (p * 15)
+        state.football.targetRot = 360 - (p * 360) // Roll back to 0
       }
       state.football.targetOpacity = 1
     } else {
