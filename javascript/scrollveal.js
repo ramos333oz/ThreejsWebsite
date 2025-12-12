@@ -122,6 +122,27 @@ export function initScrollReveal() {
     distance: "45px",
   })
 
+  // Pop-in animations for "Fun" elements
+  // Left Side Elements
+  sr.reveal(".education-dec-img--1, .education-dec-img--2, .education-dec-img--3", {
+    ...defaultProps,
+    delay: 400,
+    distance: "150px",  // Big slide for "pop" effect
+    origin: "left",
+    duration: 1200,
+    viewFactor: 0.5,
+  })
+
+  // Right Side Elements
+  sr.reveal(".education-dec-img--4, .education-dec-img--5, .education-dec-img--6", {
+    ...defaultProps,
+    delay: 400,
+    distance: "150px",
+    origin: "right",
+    duration: 1200,
+    viewFactor: 0.5,
+  })
+
   // Certificates Section
   sr.reveal(".certificate-card", {
     ...defaultProps,

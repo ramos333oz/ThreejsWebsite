@@ -1180,6 +1180,54 @@ a:hover {
 #education .timeline__item ul li {
   margin-bottom: 0.8rem;
 }
+/* Education Decorations - Floating Elements */
+#education {
+  position: relative;
+  overflow: hidden; /* Prevent horizontal scroll from flying assets */
+}
+
+.education-decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Let clicks pass through */
+  z-index: -1; /* Behind the content if needed, or 0 if side-by-side */
+}
+
+.education-dec-img {
+  position: absolute;
+  width: clamp(8rem, 12vw, 16rem);
+  height: auto;
+  opacity: 0.9;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15));
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Positioning - Distribute around the timeline */
+/* Left Side */
+.education-dec-img--1 { top: 15%; left: 5%; animation-delay: 0s; }   /* College */
+.education-dec-img--2 { top: 40%; left: 8%; animation-delay: 1.5s; } /* Graduate */
+.education-dec-img--3 { top: 70%; left: 4%; animation-delay: 3s; }   /* Gym */
+
+/* Right Side */
+.education-dec-img--4 { top: 20%; right: 5%; animation-delay: 1s; }  /* School */
+.education-dec-img--5 { top: 50%; right: 9%; animation-delay: 2.5s; } /* Student */
+.education-dec-img--6 { top: 80%; right: 3%; animation-delay: 4s; }  /* Study */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(2deg); }
+}
+
+@media (max-width: 62em) {
+  .education-dec-img {
+    opacity: 0.15; /* Fade them out on smaller screens so they don't block text */
+    width: 6rem;
+  }
+}
+
 @media (max-width: 37.5em) {
   #education .timeline__item {
     padding: 2.4rem 2.2rem;
